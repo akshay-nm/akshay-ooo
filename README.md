@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cdcba571-da72-4b96-b3db-83d3698fa2e2/deploy-status)](https://app.netlify.com/sites/pensive-kowalevski-ba6291/deploys)
 
 ## Available Scripts
 

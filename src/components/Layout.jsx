@@ -239,13 +239,12 @@ export function Layout({ children }) {
             >
               <path d="M5.019 5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm3.29 7c1.175 0 2.12-1.046 1.567-2.083A5.5 5.5 0 0 0 5.019 7 5.5 5.5 0 0 0 .162 9.917C-.39 10.954.554 12 1.73 12h6.578Z" />
             </svg>
-            <span className="ml-2.5">Hosted by</span>
+            <span className="ml-2.5">Created by</span>
           </h2>
           <div className="mt-2 flex text-sm font-bold leading-7 text-slate-900">
-            <span className="after:ml-6 after:text-slate-400 after:content-['/']">
-              Norm MacDonald
+            <span className="after:ml-6 after:text-slate-400">
+              Akshay Kumar
             </span>
-            <span className="ml-6">Bob Saget</span>
           </div>
         </div>
       </div>

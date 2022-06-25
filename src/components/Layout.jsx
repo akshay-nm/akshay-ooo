@@ -173,40 +173,52 @@ export function Layout({ children }) {
             <div className="h-px bg-gradient-to-r from-slate-200/0 via-slate-200 to-slate-200/0 lg:hidden" />
             <ul className="mt-4 flex justify-center space-x-10 text-base font-medium leading-7 text-slate-700 sm:space-x-8 lg:block lg:space-x-0 lg:space-y-4">
               <li className="flex">
-                <Link href="/">
-                  <a className="group flex items-center">
-                    <FontAwesomeIcon icon={faLinkedin} className="text-2xl" />
-                    <span className="sr-only sm:hidden">LinkedIn</span>
-                    <span className="hidden sm:ml-3 sm:block">LinkedIn</span>
-                  </a>
-                </Link>
+                <a
+                  className="group flex items-center"
+                  href="https://www.linkedin.com/in/akshay-nm/"
+                  target="_blank"
+                  rel="noreferrer noopenner"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} className="text-2xl" />
+                  <span className="sr-only sm:hidden">LinkedIn</span>
+                  <span className="hidden sm:ml-3 sm:block">LinkedIn</span>
+                </a>
               </li>
               <li className="flex">
-                <Link href="/">
-                  <a className="group flex items-center">
-                    <FontAwesomeIcon icon={faGithub} className="text-2xl" />
-                    <span className="sr-only sm:hidden">GitHub</span>
-                    <span className="hidden sm:ml-3 sm:block">GitHub</span>
-                  </a>
-                </Link>
+                <a
+                  className="group flex items-center"
+                  href="https://github.com/akshay-nm"
+                  target="_blank"
+                  rel="noreferrer noopenner"
+                >
+                  <FontAwesomeIcon icon={faGithub} className="text-2xl" />
+                  <span className="sr-only sm:hidden">GitHub</span>
+                  <span className="hidden sm:ml-3 sm:block">GitHub</span>
+                </a>
               </li>
               <li className="flex">
-                <Link href="/">
-                  <a className="group flex items-center">
-                    <FontAwesomeIcon icon={faYoutube} className="text-2xl" />
-                    <span className="sr-only sm:hidden">Youtube</span>
-                    <span className="hidden sm:ml-3 sm:block">Youtube</span>
-                  </a>
-                </Link>
+                <a
+                  className="group flex items-center"
+                  href="https://www.youtube.com/c/NightMoves"
+                  target="_blank"
+                  rel="noreferrer noopenner"
+                >
+                  <FontAwesomeIcon icon={faYoutube} className="text-2xl" />
+                  <span className="sr-only sm:hidden">Youtube</span>
+                  <span className="hidden sm:ml-3 sm:block">Youtube</span>
+                </a>
               </li>
               <li className="flex">
-                <Link href="/">
-                  <a className="group flex items-center">
-                    <FontAwesomeIcon icon={faInstagram} className="text-2xl" />
-                    <span className="sr-only sm:hidden">Instagram</span>
-                    <span className="hidden sm:ml-3 sm:block">Instagram</span>
-                  </a>
-                </Link>
+                <a
+                  className="group flex items-center"
+                  href="https://www.instagram.com/nm.akshay/"
+                  target="_blank"
+                  rel="noreferrer noopenner"
+                >
+                  <FontAwesomeIcon icon={faInstagram} className="text-2xl" />
+                  <span className="sr-only sm:hidden">Instagram</span>
+                  <span className="hidden sm:ml-3 sm:block">Instagram</span>
+                </a>
               </li>
             </ul>
           </section>

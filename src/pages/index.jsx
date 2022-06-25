@@ -6,28 +6,22 @@ import { parse } from 'rss-to-json'
 import { useAudioPlayer } from '@/components/AudioProvider'
 import { Container } from '@/components/Container'
 
-export default function Home({ episodes }) {
+export default function Home({ projects }) {
   return (
     <>
       <Head>
-        <title>
-          Their Side - Conversations with the most tragically misunderstood
-          people of our time
-        </title>
-        <meta
-          name="description"
-          content="Conversations with the most tragically misunderstood people of our time."
-        />
+        <title>Akshay Kumar - Keeping it real</title>
+        <meta name="description" content="Akshay Kumar ke kaarnaame" />
       </Head>
       <div className="pt-16 pb-12 sm:pb-4 lg:pt-12">
         <Container>
           <h1 className="text-2xl font-bold leading-7 text-slate-900">
-            Episodes
+            Projects
           </h1>
         </Container>
         <div className="divide-y divide-slate-100 sm:mt-4 lg:mt-8 lg:border-t lg:border-slate-100">
-          {episodes.map((episode) => (
-            <EpisodeEntry key={episode.id} episode={episode} />
+          {projects.map((project) => (
+            <ProjectEntry key={project.id} project={project} />
           ))}
         </div>
       </div>
@@ -35,35 +29,35 @@ export default function Home({ episodes }) {
   )
 }
 
-function EpisodeEntry({ episode }) {
-  let date = new Date(episode.published)
+function ProjectEntry({ project }) {
+  let date = new Date(project.published)
 
   let audioPlayerData = useMemo(
     () => ({
-      title: episode.title,
+      title: project.title,
       audio: {
-        src: episode.audio.src,
-        type: episode.audio.type,
+        src: project.audio.src,
+        type: project.audio.type,
       },
-      link: `/${episode.id}`,
+      link: `/${project.id}`,
     }),
-    [episode]
+    [project]
   )
   let player = useAudioPlayer(audioPlayerData)
 
   return (
     <article
-      aria-labelledby={`episode-${episode.id}-title`}
+      aria-labelledby={`project-${project.id}-title`}
       className="py-10 sm:py-12"
     >
       <Container>
         <div className="flex flex-col items-start">
           <h2
-            id={`episode-${episode.id}-title`}
+            id={`project-${project.id}-title`}
             className="mt-2 text-lg font-bold text-slate-900"
           >
-            <Link href={`/${episode.id}`}>
-              <a>{episode.title}</a>
+            <Link href={`/${project.id}`}>
+              <a>{project.title}</a>
             </Link>
           </h2>
           <time
@@ -77,17 +71,17 @@ function EpisodeEntry({ episode }) {
             }).format(date)}
           </time>
           <p className="mt-1 text-base leading-7 text-slate-700">
-            {episode.description}
+            {project.description}
           </p>
           <div className="mt-4 flex items-center gap-4">
             <button
               type="button"
               onClick={() => player.toggle()}
-              className="flex items-center text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900"
+              className="flex items-center text-sm font-bold leading-6 text-teal-500 hover:text-teal-700 active:text-teal-900"
             >
               <span className="sr-only">
                 {player.playing ? 'Pause' : 'Play'}
-                episode {episode.title}
+                project {project.title}
               </span>
               <svg
                 className="h-2.5 w-2.5 fill-current"
@@ -116,8 +110,8 @@ function EpisodeEntry({ episode }) {
             >
               /
             </span>
-            <Link href={`/${episode.id}`}>
-              <a className="flex items-center text-sm font-bold leading-6 text-pink-500 hover:text-pink-700 active:text-pink-900">
+            <Link href={`/${project.id}`}>
+              <a className="flex items-center text-sm font-bold leading-6 text-teal-500 hover:text-teal-700 active:text-teal-900">
                 Show notes
               </a>
             </Link>
@@ -133,7 +127,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      episodes: feed.items.map(
+      projects: feed.items.map(
         ({ id, title, description, enclosures, published }) => ({
           id,
           title: `${id}: ${title}`,

@@ -39,7 +39,7 @@ function ProjectEntry({ project }) {
             id={`project-${project.id}-title`}
             className="mt-2 text-lg font-bold text-slate-900"
           >
-            <Link href={`/${project.id}`}>
+            <Link href={`/${project.shortName}`}>
               <a>{project.title}</a>
             </Link>
           </h2>

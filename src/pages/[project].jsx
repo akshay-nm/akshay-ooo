@@ -1,26 +1,27 @@
-import { useMemo } from 'react'
+// import { useMemo } from 'react'
 import Head from 'next/head'
-import { parse } from 'rss-to-json'
+// import { parse } from 'rss-to-json'
 
-import { useAudioPlayer } from '@/components/AudioProvider'
+// import { useAudioPlayer } from '@/components/AudioProvider'
 import { Container } from '@/components/Container'
-import { PlayButton } from '@/components/player/PlayButton'
+import { projects } from '@/data'
+// import { PlayButton } from '@/components/player/PlayButton'
 
 export default function Project({ project }) {
   let date = new Date(project.published)
 
-  let audioPlayerData = useMemo(
-    () => ({
-      title: project.title,
-      audio: {
-        src: project.audio.src,
-        type: project.audio.type,
-      },
-      link: `/${project.id}`,
-    }),
-    [project]
-  )
-  let player = useAudioPlayer(audioPlayerData)
+  // let audioPlayerData = useMemo(
+  //   () => ({
+  //     title: project.title,
+  //     audio: {
+  //       src: project.audio.src,
+  //       type: project.audio.type,
+  //     },
+  //     link: `/${project.id}`,
+  //   }),
+  //   [project]
+  // )
+  // let player = useAudioPlayer(audioPlayerData)
 
   return (
     <>
@@ -32,7 +33,7 @@ export default function Project({ project }) {
         <Container>
           <header className="flex flex-col">
             <div className="flex items-center gap-6">
-              <PlayButton player={player} size="large" />
+              {/* <PlayButton player={player} size="large" /> */}
               <div className="flex flex-col">
                 <h1 className="mt-2 text-4xl font-bold text-slate-900">
                   {project.title}
@@ -65,20 +66,20 @@ export default function Project({ project }) {
 }
 
 export async function getStaticProps({ params }) {
-  let feed = await parse('https://their-side-feed.vercel.app/api/feed')
-  let project = feed.items
-    .map(({ id, title, description, content, enclosures, published }) => ({
-      id: id.toString(),
-      title: `${id}: ${title}`,
-      description,
-      content,
-      published,
-      audio: enclosures.map((enclosure) => ({
-        src: enclosure.url,
-        type: enclosure.type,
-      }))[0],
-    }))
-    .find(({ id }) => id === params.project)
+  let project = projects.find(({ id }) => id === params.project)
+  // .items
+  //   .map(({ id, title, description, content, enclosures, published }) => ({
+  //     id: id.toString(),
+  //     title: `${id}: ${title}`,
+  //     description,
+  //     content,
+  //     published,
+  //     audio: enclosures.map((enclosure) => ({
+  //       src: enclosure.url,
+  //       type: enclosure.type,
+  //     }))[0],
+  //   }))
+  //   .find(({ id }) => id === params.project)
 
   if (!project) {
     return {
@@ -95,12 +96,12 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  let feed = await parse('https://their-side-feed.vercel.app/api/feed')
+  // let feed = await parse('https://their-side-feed.vercel.app/api/feed')
 
   return {
-    paths: feed.items.map(({ id }) => ({
+    paths: projects.map(({ shortName }) => ({
       params: {
-        project: id.toString(),
+        project: shortName,
       },
     })),
     fallback: 'blocking',

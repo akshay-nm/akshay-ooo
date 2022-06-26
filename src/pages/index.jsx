@@ -3,8 +3,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { parse } from 'rss-to-json'
 
-import { useAudioPlayer } from '@/components/AudioProvider'
+// import { useAudioPlayer } from '@/components/AudioProvider'
 import { Container } from '@/components/Container'
+import { projects } from '@/data'
 
 export default function Home({ projects }) {
   return (
@@ -32,18 +33,18 @@ export default function Home({ projects }) {
 function ProjectEntry({ project }) {
   let date = new Date(project.published)
 
-  let audioPlayerData = useMemo(
-    () => ({
-      title: project.title,
-      audio: {
-        src: project.audio.src,
-        type: project.audio.type,
-      },
-      link: `/${project.id}`,
-    }),
-    [project]
-  )
-  let player = useAudioPlayer(audioPlayerData)
+  // let audioPlayerData = useMemo(
+  //   () => ({
+  //     title: project.title,
+  //     audio: {
+  //       src: project.audio.src,
+  //       type: project.audio.type,
+  //     },
+  //     link: `/${project.id}`,
+  //   }),
+  //   [project]
+  // )
+  // let player = useAudioPlayer(audioPlayerData)
 
   return (
     <article
@@ -61,27 +62,29 @@ function ProjectEntry({ project }) {
             </Link>
           </h2>
           <time
-            dateTime={date.toISOString()}
+            // dateTime={date.toISOString()}
+            dateTime={project.date}
             className="-order-1 font-mono text-sm leading-7 text-slate-500"
           >
-            {new Intl.DateTimeFormat('en-US', {
+            {/* {new Intl.DateTimeFormat('en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
-            }).format(date)}
+            }).format(date)} */}
+            {project.date}
           </time>
           <p className="mt-1 text-base leading-7 text-slate-700">
             {project.description}
           </p>
           <div className="mt-4 flex items-center gap-4">
-            <button
+            {/* <button
               type="button"
               onClick={() => player.toggle()}
               className="flex items-center text-sm font-bold leading-6 text-teal-500 hover:text-teal-700 active:text-teal-900"
             >
               <span className="sr-only">
-                {player.playing ? 'Pause' : 'Play'}
-                project {project.title}
+                {/* {player.playing ? 'Pause' : 'Play'} */}
+            {/* project {project.title}
               </span>
               <svg
                 className="h-2.5 w-2.5 fill-current"
@@ -109,7 +112,7 @@ function ProjectEntry({ project }) {
               className="text-sm font-bold text-slate-400"
             >
               /
-            </span>
+            </span> */}
             <Link href={`/${project.id}`}>
               <a className="flex items-center text-sm font-bold leading-6 text-teal-500 hover:text-teal-700 active:text-teal-900">
                 Show notes
@@ -123,22 +126,23 @@ function ProjectEntry({ project }) {
 }
 
 export async function getStaticProps() {
-  const feed = await parse('https://their-side-feed.vercel.app/api/feed')
+  // const feed = await parse('https://their-side-feed.vercel.app/api/feed')
 
   return {
     props: {
-      projects: feed.items.map(
-        ({ id, title, description, enclosures, published }) => ({
-          id,
-          title: `${id}: ${title}`,
-          published,
-          description,
-          audio: enclosures.map((enclosure) => ({
-            src: enclosure.url,
-            type: enclosure.type,
-          }))[0],
-        })
-      ),
+      // projects: feed.items.map(
+      //   ({ id, title, description, enclosures, published }) => ({
+      //     id,
+      //     title: `${id}: ${title}`,
+      //     published,
+      //     description,
+      //     audio: enclosures.map((enclosure) => ({
+      //       src: enclosure.url,
+      //       type: enclosure.type,
+      //     }))[0],
+      //   })
+      // ),
+      projects: projects,
     },
     revalidate: 10,
   }

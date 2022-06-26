@@ -95,11 +95,12 @@ function AboutSection(props) {
           'lg:line-clamp-4': !isExpanded,
         })}
       >
-        On this page, I&apos;ll skim over some of my endeavours, occasionally
+        {/* On this page, I&apos;ll skim over some of my endeavours, occasionally
         deep diving into the process behind the deeds, without actually getting
-        the full story. I&apos;m a big fan of the open source community but
-        ironically I find it really difficult sharing things that I&apos;ve
-        done. <br />I really love to sing whenever I get the chance.
+        the full story. */}
+        I&apos;m a big fan of the open source community but ironically I find it
+        really difficult sharing things that I&apos;ve done. <br />I really love
+        to sing whenever I get the chance.
         <br /> Currently living in Konohagakure. 🍜 <br />
         Occassionaly visit Northumbria too ⚔️
       </p>
@@ -148,11 +149,12 @@ export function Layout({ children }) {
           <div className="mt-10 text-center lg:mt-12 lg:text-left">
             <p className="text-xl font-bold text-slate-900">
               <Link href="/">
-                <a>The Slate</a>
+                <a>My notepad/chalkboard</a>
               </Link>
             </p>
             <p className="mt-3 text-lg font-medium leading-8 text-slate-700">
-              Keeping it clean, and simple.
+              This is a collection of things I&apos;ve worked on or have been
+              part of.
             </p>
           </div>
           <AboutSection className="mt-12 hidden lg:block" />
@@ -248,9 +250,9 @@ export function Layout({ children }) {
           </div>
         </div>
       </div>
-      <div className="fixed inset-x-0 right-0 bottom-0 z-10 rounded-lg lg:left-112 xl:left-120">
+      {/* <div className="fixed inset-x-0 right-0 bottom-0 z-10 rounded-lg lg:left-112 xl:left-120">
         <AudioPlayer />
-      </div>
+      </div> */}
     </>
   )
 }

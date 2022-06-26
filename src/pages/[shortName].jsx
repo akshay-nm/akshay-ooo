@@ -1,28 +1,8 @@
-// import { useMemo } from 'react'
 import Head from 'next/head'
-// import { parse } from 'rss-to-json'
-
-// import { useAudioPlayer } from '@/components/AudioProvider'
 import { Container } from '@/components/Container'
 import { projects } from '@/data'
-// import { PlayButton } from '@/components/player/PlayButton'
 
 export default function Project({ project }) {
-  let date = new Date(project.published)
-
-  // let audioPlayerData = useMemo(
-  //   () => ({
-  //     title: project.title,
-  //     audio: {
-  //       src: project.audio.src,
-  //       type: project.audio.type,
-  //     },
-  //     link: `/${project.id}`,
-  //   }),
-  //   [project]
-  // )
-  // let player = useAudioPlayer(audioPlayerData)
-
   return (
     <>
       <Head>
@@ -32,21 +12,13 @@ export default function Project({ project }) {
       <article className="py-16 lg:py-36">
         <Container>
           <header className="flex flex-col">
-            <div className="flex items-center gap-6">
-              {/* <PlayButton player={player} size="large" /> */}
+            <div className="ml-24 flex items-center gap-6">
               <div className="flex flex-col">
                 <h1 className="mt-2 text-4xl font-bold text-slate-900">
                   {project.title}
                 </h1>
-                <time
-                  dateTime={date.toISOString()}
-                  className="-order-1 font-mono text-sm leading-7 text-slate-500"
-                >
-                  {new Intl.DateTimeFormat('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  }).format(date)}
+                <time className="-order-1 font-mono text-sm leading-7 text-slate-500">
+                  {project.date}
                 </time>
               </div>
             </div>
@@ -66,20 +38,7 @@ export default function Project({ project }) {
 }
 
 export async function getStaticProps({ params }) {
-  let project = projects.find(({ id }) => id === params.project)
-  // .items
-  //   .map(({ id, title, description, content, enclosures, published }) => ({
-  //     id: id.toString(),
-  //     title: `${id}: ${title}`,
-  //     description,
-  //     content,
-  //     published,
-  //     audio: enclosures.map((enclosure) => ({
-  //       src: enclosure.url,
-  //       type: enclosure.type,
-  //     }))[0],
-  //   }))
-  //   .find(({ id }) => id === params.project)
+  let project = projects.find(({ shortName }) => shortName === params.shortName)
 
   if (!project) {
     return {
@@ -96,12 +55,10 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  // let feed = await parse('https://their-side-feed.vercel.app/api/feed')
-
   return {
     paths: projects.map(({ shortName }) => ({
       params: {
-        project: shortName,
+        shortName,
       },
     })),
     fallback: 'blocking',

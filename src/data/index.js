@@ -47,7 +47,7 @@ export const projects = [
   },
   {
     id: 2,
-    date: 'September 29, 2020',
+    date: 'April 26, 2020',
     shortName: 'disaster-relief-idea',
     title: 'A pair of applications for people stuck in disasters',
     description:

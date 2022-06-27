@@ -8,7 +8,7 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
-        <title>Akshay Kumar - Keeping it real</title>
+        <title>Akshay Kumar - My scribe</title>
         <meta name="description" content="Akshay Kumar ke kaarnaame" />
       </Head>
       <div className="pt-16 pb-12 sm:pb-4 lg:pt-12">

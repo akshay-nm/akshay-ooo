@@ -11,6 +11,7 @@ import {
   faInstagram,
   faInstagramSquare,
   faLinkedin,
+  faMediumM,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 
@@ -149,7 +150,7 @@ export function Layout({ children }) {
           <div className="mt-10 text-center lg:mt-12 lg:text-left">
             <p className="text-xl font-bold text-slate-900">
               <Link href="/">
-                <a>My notepad/chalkboard</a>
+                <a>My scribe</a>
               </Link>
             </p>
             <p className="mt-3 text-lg font-medium leading-8 text-slate-700">
@@ -220,6 +221,18 @@ export function Layout({ children }) {
                   <FontAwesomeIcon icon={faInstagram} className="text-2xl" />
                   <span className="sr-only sm:hidden">Instagram</span>
                   <span className="hidden sm:ml-3 sm:block">Instagram</span>
+                </a>
+              </li>
+              <li className="flex">
+                <a
+                  className="group flex items-center"
+                  href="https://akshay-nm.medium.com/"
+                  target="_blank"
+                  rel="noreferrer noopenner"
+                >
+                  <FontAwesomeIcon icon={faMediumM} className="text-2xl" />
+                  <span className="sr-only sm:hidden">Medium</span>
+                  <span className="hidden sm:ml-3 sm:block">Medium</span>
                 </a>
               </li>
             </ul>

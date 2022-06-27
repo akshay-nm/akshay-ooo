@@ -3,8 +3,9 @@ export const projects = [
     id: 3,
     date: 'May 29, 2022',
     shortName: 'restoscan',
-    title: 'A saas for modern restaurants.',
-    description: '',
+    title: 'Restoscan',
+    description:
+      'Realtime analytics and Feedback forms for Restaurants and bars',
     aim: [],
     technologies: ['nextjs', 'typescript', 'tailwindcss'],
     links: [],

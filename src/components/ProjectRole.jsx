@@ -1,16 +1,14 @@
 import React from 'react'
 
-const ProjectRole = ({ roles }) => {
-  return roles.length > 0 ? (
+const ProjectRole = ({ role }) => {
+  return role ? (
     <>
       <h2>Roles</h2>
       <ul>
-        {roles.map((role, i) => (
-          <li key={i}>
-            <span>{role.name}</span>
-            <span>{role.description}</span>
-          </li>
-        ))}
+        <li key={i}>
+          <span>{role.name}</span>
+          <span>{role.description}</span>
+        </li>
       </ul>
     </>
   ) : (

@@ -4,6 +4,8 @@ import { projects } from '@/data'
 import ProjectPeople from '@/components/ProjectPeople'
 import ProjectLinks from '@/components/ProjectLinks'
 import ProjectTechnologies from '@/components/ProjectTechnologies'
+import ProjectRole from '@/components/ProjectRole'
+import ProjectTargets from '@/components/ProjectTargets'
 
 export default function Project({ project }) {
   return (
@@ -31,9 +33,13 @@ export default function Project({ project }) {
           </header>
           <hr className="my-12 border-gray-200" />
           <div className="prose prose-slate mt-14 [&>h2]:mt-12 [&>h2]:flex [&>h2]:items-center [&>h2]:font-mono [&>h2]:text-sm [&>h2]:font-medium [&>h2]:leading-7 [&>h2]:text-slate-900 [&>h2]:before:mr-3 [&>h2]:before:h-3 [&>h2]:before:w-1.5 [&>h2]:before:rounded-r-full [&>h2]:before:bg-cyan-200 [&>ul]:mt-6 [&>ul]:list-['\2013\20'] [&>ul]:pl-5 [&>h2:nth-of-type(3n+2)]:before:bg-indigo-200 [&>h2:nth-of-type(3n)]:before:bg-violet-200">
+            <h2>Project type</h2>
+            <p>{project.type}</p>
+            <ProjectTargets targets={project.targets} />
             <ProjectTechnologies technologies={project.technologies} />
             <ProjectPeople people={project.people} />
             <ProjectLinks links={project.links} />
+            <ProjectRole roles={project.role} />
           </div>
         </Container>
       </article>

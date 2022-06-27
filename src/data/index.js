@@ -130,6 +130,7 @@ export const projects = [
   {
     id: 10,
     shortName: 'food-af',
+    type: 'personal',
     date: 'December 27, 2020',
     title: 'What to eat next suggestions',
     description: `We've all been asked by our mother to what to eat next. This is a simple application which suggests you what to eat next.`,
@@ -139,10 +140,27 @@ export const projects = [
     people: [],
   },
   {
+    id: 10,
+    shortName: 'igniter-cup',
+    date: 'February 6, 2020',
+    type: 'service',
+    title: 'Igniter Cup - 2020 by County Cricket Academy',
+    description: `Promotional video for the Igniter Cup 2020 (Cricket tournament) by County Cricket Academy.`,
+    targets: [],
+    technologies: ['Adobe AE', 'Adobe Premiere'],
+    links: [
+      {
+        name: 'Igniter Cup 2020 video',
+        href: 'https://www.youtube.com/watch?v=jeMpdiXi_Mg',
+      },
+    ],
+    people: [],
+  },
+  {
     id: 4,
     date: 'May 20, 2019',
     shortName: 'labsmart',
-    type: 'freelance',
+    type: 'service',
     title: 'Frontend for Labsmart Healthcare',
     description:
       'This was my first project as a freelancer. I was given a task to uplift the frontend for an existing pathology lab mananagement application made by a healthcare company.',

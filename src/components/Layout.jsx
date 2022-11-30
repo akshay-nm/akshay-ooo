@@ -89,7 +89,7 @@ function AboutSection(props) {
             className="fill-teal-300"
           />
         </svg>
-        <span className="ml-2.5">About</span>
+        <span className="ml-2.5">About me</span>
       </h2>
       <p
         className={clsx('mt-2 text-base leading-7 text-slate-700', {

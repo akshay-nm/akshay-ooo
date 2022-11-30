@@ -8,11 +8,11 @@ import posterImage from '@/images/profile.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
-  faInstagram,
-  faInstagramSquare,
+//   faInstagram,
+//   faInstagramSquare,
   faLinkedin,
   faMediumM,
-  faYoutube,
+//   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 
 function random(length, min, max, seed = 1) {

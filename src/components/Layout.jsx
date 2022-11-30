@@ -199,7 +199,7 @@ export function Layout({ children }) {
                   <span className="hidden sm:ml-3 sm:block">GitHub</span>
                 </a>
               </li>
-              <li className="flex">
+              {/*<li className="flex">
                 <a
                   className="group flex items-center"
                   href="https://www.youtube.com/c/NightMoves"
@@ -222,7 +222,7 @@ export function Layout({ children }) {
                   <span className="sr-only sm:hidden">Instagram</span>
                   <span className="hidden sm:ml-3 sm:block">Instagram</span>
                 </a>
-              </li>
+              </li>*/}
               <li className="flex">
                 <a
                   className="group flex items-center"

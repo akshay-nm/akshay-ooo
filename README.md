@@ -20,3 +20,6 @@ I can also showcase anant's website and the shopify store for hashtag-dna
 
 I need a section for other ideas as well
 basically my journey till now
+
+The showcase needs to be dynamic, the user should not have to scroll, the site should automatically guide the user, like a tour.
+It has to be an experience.

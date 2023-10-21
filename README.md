@@ -1,34 +1,22 @@
-# Transmit
+# My portfolio
 
-Transmit is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+## Things to highlight
 
-## Getting started
+I need to showcase my expertise in full stack application development
+- code i write is clean, clear and easy to maintain which i great if you already have a tech team
+for me its easier to adhere to existing patterns and i can help you find any chinks in the armor
+- i can solve complex problems which makes me an ideal candidate if you are from a non technical background
 
-To get started with this template, first install the npm dependencies:
+I also need some working applications to showcase on my portfolio
 
-```bash
-npm install
-```
+I need a section to highlight ninana technologies private limited
+I need to say that all my projects are deployed under the banner of ninana technologies
+- bharpet
+- darshan
+- holygrain
+- nivedan and nirvahan
 
-Next, run the development server:
+I can also showcase anant's website and the shopify store for hashtag-dna
 
-```bash
-npm run dev
-```
-
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
-
-## Customizing
-
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
-
-## License
-
-This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
-
-## Learn more
-
-To learn more about the technologies used in this site template, see the following resources:
-
-- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
+I need a section for other ideas as well
+basically my journey till now

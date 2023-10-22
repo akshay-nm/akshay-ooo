@@ -14,6 +14,7 @@ export default function Home() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <HiThereSection />
+        {/** move tech stack to showcase page, add something along the lines of "or if you wanna check me out here's the dirt" */}
         <TechStack />
       </div>
     </main>

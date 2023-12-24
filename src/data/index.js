@@ -76,19 +76,19 @@ export const projects = [
     links: [],
     people: [],
   },
-  {
-    id: 2,
-    date: 'April 26, 2020',
-    shortName: 'disaster-relief-idea',
-    type: 'personal',
-    title: 'A pair of applications for people stuck in disasters',
-    description:
-      'We all vitnessed the mess caused by COVID. A lot of people were not able to ensure even the basic needs of their family. I created a pair of applications for people stuck in disasters. Through Nivedan (meaning request) application a user could request aid from people nearby. Through the Nirvahan (meaning resolution) application a user could see a list of help requests nearby and respond aptly.',
-    targets: [],
-    technologies: ['firebase', 'create-react-app'],
-    links: [],
-    people: [],
-  },
+  // {
+  //   id: 2,
+  //   date: 'April 26, 2020',
+  //   shortName: 'disaster-relief-idea',
+  //   type: 'personal',
+  //   title: 'A pair of applications for people stuck in disasters',
+  //   description:
+  //     'We all vitnessed the mess caused by COVID. A lot of people were not able to ensure even the basic needs of their family. I created a pair of applications for people stuck in disasters. Through Nivedan (meaning request) application a user could request aid from people nearby. Through the Nirvahan (meaning resolution) application a user could see a list of help requests nearby and respond aptly.',
+  //   targets: [],
+  //   technologies: ['firebase', 'create-react-app'],
+  //   links: [],
+  //   people: [],
+  // },
   {
     id: 6,
     shortName: 'react-confetch',

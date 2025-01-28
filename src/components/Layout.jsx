@@ -8,11 +8,11 @@ import posterImage from '@/images/profile.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
-//   faInstagram,
-//   faInstagramSquare,
+  //   faInstagram,
+  //   faInstagramSquare,
   faLinkedin,
   faMediumM,
-//   faYoutube,
+  //   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 
 function random(length, min, max, seed = 1) {
@@ -96,13 +96,7 @@ function AboutSection(props) {
           'lg:line-clamp-4': !isExpanded,
         })}
       >
-        {/* On this page, I&apos;ll skim over some of my endeavours, occasionally
-        deep diving into the process behind the deeds, without actually getting
-        the full story. */}
-        I&apos;m a big fan of the open source community but ironically I find it
-        really difficult sharing things that I&apos;ve done. <br />I really love
-        to sing whenever I get the chance.
-        <br /> Currently living in Konohagakure. 🍜 <br />
+        Living in Konohagakure. 🍜 <br />
         Occassionaly visit Northumbria too ⚔️
       </p>
       {!isExpanded && (

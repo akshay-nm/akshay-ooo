@@ -20,14 +20,14 @@ export const projects = [
       description: '',
       company: 'Entendre Finance',
     },
-    links: ['entendre.finance'],
+    links: [{ href: 'https://entendre.finance', name: 'Company Website' }],
     people: [],
   },
   {
     id: 2,
-    date: 'May 29, 2022',
-    shortName: 'restoscan',
-    title: 'Restoscan',
+    date: 'May 29, 2022 - Jun 29, 2022',
+    shortName: 'bharpet',
+    title: 'Bharpet',
     description:
       'Realtime analytics and Feedback forms for Restaurants and bars, now evolving to be a full-fledged online POS system.',
     targets: [],
@@ -62,7 +62,7 @@ export const projects = [
   {
     id: 4,
     shortName: 'ros',
-    date: 'December 26, 2021',
+    date: 'December 26, 2021 - Jan 12, 2022',
     title: 'A ROS-based robot control panel',
     type: 'service',
     description:

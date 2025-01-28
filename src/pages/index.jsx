@@ -54,7 +54,7 @@ function ProjectEntry({ project }) {
           </p>
           <div className="mt-4 flex items-center gap-4">
             <Link href={`/${project.shortName}`}>
-              <a className="flex items-center text-sm font-bold leading-6 text-teal-500 hover:text-teal-700 active:text-teal-900">
+              <a className="flex items-center text-sm font-bold leading-6 text-orange-500 hover:text-orange-700 active:text-orange-900">
                 Show notes
               </a>
             </Link>

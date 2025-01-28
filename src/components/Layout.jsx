@@ -86,7 +86,7 @@ function AboutSection(props) {
           />
           <path
             d="M6 1a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V1Z"
-            className="fill-teal-300"
+            className="fill-orange-300"
           />
         </svg>
         <span className="ml-2.5">About me</span>
@@ -105,7 +105,7 @@ function AboutSection(props) {
       {/* {!isExpanded && (
         <button
           type="button"
-          className="mt-2 hidden text-sm font-bold leading-6 text-teal-500 hover:text-teal-700 active:text-teal-900 lg:inline-block"
+          className="mt-2 hidden text-sm font-bold leading-6 text-orange-500 hover:text-orange-700 active:text-orange-900 lg:inline-block"
           onClick={() => setIsExpanded(true)}
         >
           Show more

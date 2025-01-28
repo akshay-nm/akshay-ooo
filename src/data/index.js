@@ -1,6 +1,30 @@
 export const projects = [
   {
-    id: 3,
+    id: 1,
+    date: 'Apr 3, 2023 - Present',
+    shortName: 'entendre',
+    title: 'Entendre Finance',
+    description: 'Automated crypto accounting.',
+    targets: [],
+    technologies: [
+      'nextjs',
+      'express',
+      'openai',
+      'llamaindex',
+      'serverless',
+      'aws',
+    ],
+    type: 'product',
+    role: {
+      name: 'Fullstack Engineer',
+      description: '',
+      company: 'Entendre Finance',
+    },
+    links: ['entendre.finance'],
+    people: [],
+  },
+  {
+    id: 2,
     date: 'May 29, 2022',
     shortName: 'restoscan',
     title: 'Restoscan',
@@ -18,7 +42,7 @@ export const projects = [
     people: [],
   },
   {
-    id: 11,
+    id: 3,
     shortName: 'poplink-ads',
     date: 'March 29, 2022',
     title: 'Highly contextual ads for blogs without third party-cookies.',
@@ -36,7 +60,7 @@ export const projects = [
     people: [],
   },
   {
-    id: 8,
+    id: 4,
     shortName: 'ros',
     date: 'December 26, 2021',
     title: 'A ROS-based robot control panel',
@@ -64,7 +88,7 @@ export const projects = [
     people: [],
   },
   {
-    id: 9,
+    id: 5,
     shortName: 'codegen',
     date: 'September 29, 2021',
     type: 'personal',
@@ -115,7 +139,7 @@ export const projects = [
     people: [],
   },
   {
-    id: 5,
+    id: 8,
     date: 'February 28, 2020',
     type: 'service',
     shortName: 'jsr-ecofoods',
@@ -123,12 +147,12 @@ export const projects = [
       'A website for premium-quality nutrition to your diet with hygienically processed and packaged Chakki Atta in an ISO-certified facility.',
     title: 'JSR Ecofoods',
     targets: [],
-    technologies: [],
+    technologies: ['create-react-app'],
     links: [],
-    people: ['create-react-app'],
+    people: [],
   },
   {
-    id: 10,
+    id: 9,
     shortName: 'food-af',
     type: 'personal',
     date: 'December 27, 2020',
@@ -157,7 +181,7 @@ export const projects = [
     people: [],
   },
   {
-    id: 4,
+    id: 11,
     date: 'May 20, 2019',
     shortName: 'labsmart',
     type: 'service',
@@ -170,7 +194,7 @@ export const projects = [
     links: [],
   },
   {
-    id: 1,
+    id: 12,
     shortName: 'drone-assembly-vr-video',
     date: 'October 16, 2017',
     type: 'service',

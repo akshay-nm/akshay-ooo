@@ -74,7 +74,7 @@ function Waveform() {
 }
 
 function AboutSection(props) {
-  let [isExpanded, setIsExpanded] = useState(false)
+  // let [isExpanded, setIsExpanded] = useState(false)
 
   return (
     <section {...props}>
@@ -92,14 +92,17 @@ function AboutSection(props) {
         <span className="ml-2.5">About me</span>
       </h2>
       <p
-        className={clsx('mt-2 text-base leading-7 text-slate-700', {
-          'lg:line-clamp-4': !isExpanded,
-        })}
+        className={clsx(
+          'mt-2 text-base leading-7 text-slate-700'
+          //   {
+          //   'lg:line-clamp-4': !isExpanded,
+          // }
+        )}
       >
         Jōnin 🥷 <br />
         Occassionaly visit Northumbria too ⚔️
       </p>
-      {!isExpanded && (
+      {/* {!isExpanded && (
         <button
           type="button"
           className="mt-2 hidden text-sm font-bold leading-6 text-teal-500 hover:text-teal-700 active:text-teal-900 lg:inline-block"
@@ -107,7 +110,7 @@ function AboutSection(props) {
         >
           Show more
         </button>
-      )}
+      )} */}
     </section>
   )
 }

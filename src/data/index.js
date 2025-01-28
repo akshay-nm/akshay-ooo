@@ -25,7 +25,7 @@ export const projects = [
   },
   {
     id: 2,
-    date: 'May 29, 2022 - Jun 29, 2022',
+    date: 'May 29, 2022 - Jun 29, 2023',
     shortName: 'bharpet',
     title: 'Bharpet',
     description:

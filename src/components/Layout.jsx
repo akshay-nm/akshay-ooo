@@ -96,7 +96,7 @@ function AboutSection(props) {
           'lg:line-clamp-4': !isExpanded,
         })}
       >
-        Living in Konohagakure. 🍜 <br />
+        Alomst an Anbu now. 🥷 <br />
         Occassionaly visit Northumbria too ⚔️
       </p>
       {!isExpanded && (

@@ -3,7 +3,7 @@ import { Navigation } from '@/components/Navigation'
 
 export const metadata = {
   title: 'Akshay Kumar - Full-Stack Engineer',
-  description: 'Full-stack engineer. 8+ years. I build things that work.',
+  description: 'Full-stack engineer specializing in accounting systems and financial infrastructure.',
 }
 
 export default function RootLayout({

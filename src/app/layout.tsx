@@ -1,16 +1,17 @@
-import '@/styles/tailwind.css'
+import type { Metadata } from 'next'
 import { Navigation } from '@/components/Navigation'
+import './globals.css'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Akshay Kumar - Full-Stack Engineer',
   description: 'Full-stack engineer specializing in accounting systems and financial infrastructure.',
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en" className="bg-white antialiased">
       <head>

@@ -2,11 +2,12 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { WorkflowDemo } from '@/components/demos/WorkflowDemo'
 
 const skills = [
-  { category: 'Core', items: ['TypeScript', 'Node.js', 'React', 'Next.js', 'MongoDB'] },
-  { category: 'Systems', items: ['Background Jobs', 'Data Pipelines', 'Rules Engines', 'Billing Integration'] },
-  { category: 'Infrastructure', items: ['AWS', 'Docker', 'Serverless', 'Cloudflare'] },
+  { category: 'Domain', items: ['Accounting Systems', 'Billing & Payments', 'Financial Reporting', 'Compliance & Audit'] },
+  { category: 'Stack', items: ['TypeScript', 'Node.js', 'React', 'Next.js', 'MongoDB'] },
+  { category: 'Systems', items: ['Background Jobs', 'Data Pipelines', 'Rules Engines', 'Third-party Integrations'] },
 ]
 
 const caseStudies = [
@@ -49,7 +50,7 @@ export default function Home() {
               Akshay Kumar
             </h1>
             <p className="text-2xl md:text-3xl text-slate-600 max-w-2xl mb-12 leading-relaxed">
-              Full-stack engineer. 8+ years. I build things that work.
+              Full-stack engineer specializing in <strong className="text-slate-900">accounting systems</strong> and <strong className="text-slate-900">financial infrastructure</strong>. Billing, reporting, and data pipelines.
             </p>
             <div className="flex gap-4">
               <Link
@@ -65,6 +66,36 @@ export default function Home() {
                 About me
               </Link>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How I Work Section */}
+      <section className="py-20">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">How I Work</h2>
+            <div className="prose prose-slate prose-lg max-w-none">
+              <p className="text-slate-600 leading-relaxed">
+                I use <strong className="text-slate-900">Claude Code</strong> for implementation,
+                following <strong className="text-slate-900">TDD</strong> and
+                <strong className="text-slate-900"> Domain-Driven Design</strong> with hexagonal
+                architecture. Most of my effort goes into <strong className="text-slate-900">design
+                discussions</strong> rather than writing code—defining boundaries, clarifying
+                constraints, and shaping the domain model.
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                The bottleneck is no longer implementation; it&apos;s <strong className="text-slate-900">context
+                window management</strong>. AI can write accurate code when given precise design
+                constraints. My job is ensuring those constraints are clear. This approach has
+                compressed delivery from <strong className="text-slate-900">months to hours</strong>.
+              </p>
+            </div>
+            <WorkflowDemo />
           </motion.div>
         </div>
       </section>
@@ -162,7 +193,7 @@ export default function Home() {
           >
             <h2 className="text-3xl font-bold text-white mb-4">Let&apos;s work together</h2>
             <p className="text-slate-400 mb-8 max-w-lg mx-auto">
-              I&apos;m currently available for freelance work and full-time opportunities.
+              Looking for <strong className="text-slate-200">fintech teams</strong> building accounting, billing, or financial infrastructure.
             </p>
             <a
               href="mailto:akshay.nm92@gmail.com"

@@ -6,6 +6,12 @@ import { RulesBuilderDemo } from '@/components/demos/RulesBuilderDemo'
 import { JobFlowDiagram } from '@/components/demos/JobFlowDiagram'
 import { StripeOnboardingFlow } from '@/components/demos/StripeOnboardingFlow'
 import { S3UploadFlow } from '@/components/demos/S3UploadFlow'
+import { AccountingPeriodDemo } from '@/components/demos/AccountingPeriodDemo'
+import { TimezoneDemo } from '@/components/demos/TimezoneDemo'
+import { GLSyncDemo } from '@/components/demos/GLSyncDemo'
+import { JobTrackerDemo } from '@/components/demos/JobTrackerDemo'
+import { BalanceCarryoverDemo } from '@/components/demos/BalanceCarryoverDemo'
+import { SavedTabsDemo } from '@/components/demos/SavedTabsDemo'
 
 export default function EntendreCase() {
   return (
@@ -42,6 +48,10 @@ export default function EntendreCase() {
           </h1>
           <p className="text-2xl text-slate-600 leading-relaxed">
             Double-entry crypto accounting with AI-assisted workflows
+          </p>
+          <p className="text-base text-slate-500 mt-4">
+            Joined pre-launch as an early engineer. Over two years, grew from implementing
+            specs to owning entire systems—billing, background infrastructure, and reporting.
           </p>
         </motion.header>
 
@@ -117,11 +127,16 @@ export default function EntendreCase() {
           <h3>Background Job Infrastructure</h3>
           <p>
             Reliable pipelines for backfills, asset snapshots, reconciliation, and long-running
-            transaction processing with <strong>retry logic and failure recovery</strong>. Jobs processed
-            thousands of transactions with <strong>real-time progress updates</strong> to the UI.
+            transaction processing with <strong>retry logic and failure recovery</strong>. Jobs could
+            be triggered from anywhere in the UI - a sheet, a modal, a bulk action. Each showed
+            <strong> inline progress</strong>, but if users navigated away, tracking moved to a
+            <strong> global job tracker</strong> in the corner. Users could monitor all running jobs,
+            <strong> pause or cancel</strong> them, and see real-time progress without losing context.
           </p>
 
           <JobFlowDiagram />
+
+          <JobTrackerDemo />
 
           <h3>Stripe Billing Integration</h3>
           <p>
@@ -149,14 +164,22 @@ export default function EntendreCase() {
           <p>
             Different firms needed different <strong>end-of-day cutoffs</strong> based on location.
             Implemented organization-level timezone configuration affecting all timestamps, reports,
-            and data filtering.
+            and data filtering. Critically, <strong>accounting periods depend on timezone</strong> -
+            a transaction at 11 PM UTC on March 31 falls in March for a London firm but April for
+            a Tokyo firm. Changing timezone <strong>invalidates existing journal entries</strong> and
+            requires re-classification, so users see a confirmation showing exactly which periods
+            and entries will be affected before proceeding.
           </p>
+
+          <TimezoneDemo />
 
           <h3>Third-Party GL Sync</h3>
           <p>
             Streamlined <strong>QuickBooks and Xero</strong> integration into a unified service handling
             authentication, field mapping, and error recovery consistently across platforms.
           </p>
+
+          <GLSyncDemo />
 
           <h3>Accounting Period Management</h3>
           <ul>
@@ -165,12 +188,23 @@ export default function EntendreCase() {
             <li><strong>Impairment workflows</strong> with audit trails</li>
           </ul>
 
+          <AccountingPeriodDemo />
+
           <h3>Financial Reporting</h3>
+          <p>
+            All reports (balance sheet, trial balance, income statement) are powered by
+            <strong> pre-computed account balances</strong>, not calculated on-the-fly. When a
+            period closes, ending balances are computed from journal entries and
+            <strong> carried forward</strong> as the next period&apos;s opening balance. This makes
+            reports <strong>instant</strong> regardless of transaction volume.
+          </p>
           <ul>
             <li><strong>Balance sheet, trial balance, income statement</strong></li>
             <li>Timezone-aware date filtering</li>
             <li><strong>CSV export</strong> for downstream analysis</li>
           </ul>
+
+          <BalanceCarryoverDemo />
 
           {/* UI/UX */}
           <div className="not-prose border-t border-slate-200 mt-12 pt-8 mb-6">
@@ -182,6 +216,17 @@ export default function EntendreCase() {
             Unified filtering across all views: date ranges, wallets, accounts, categories, tags.
             Backend <strong>DRY filter helpers</strong> - composable and unit testable.
           </p>
+
+          <h3>Persistent Tabs</h3>
+          <p>
+            Power users needed to save their workspace configurations. Built a <strong>tabs system
+            persisted to database</strong> and exposed via API, allowing users to save UI state
+            including <strong>default filters, column preferences, and view settings</strong>. Hybrid
+            storage with <strong>localStorage for instant load</strong> and API sync for cross-device
+            access. Each tab remembers exactly how the user left it.
+          </p>
+
+          <SavedTabsDemo />
 
           <h3>Table Components</h3>
           <ul>

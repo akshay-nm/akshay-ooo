@@ -2,6 +2,13 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { ProjectHierarchyDemo } from '@/components/demos/ProjectHierarchyDemo'
+import { RCPSPPlanningDemo } from '@/components/demos/RCPSPPlanningDemo'
+import { ProgressAnalyticsDemo } from '@/components/demos/ProgressAnalyticsDemo'
+import { InventoryTrackingDemo } from '@/components/demos/InventoryTrackingDemo'
+import { ReviewWorkflowDemo } from '@/components/demos/ReviewWorkflowDemo'
+import { E2EMessagingDemo } from '@/components/demos/E2EMessagingDemo'
+import { AuditTrailDemo } from '@/components/demos/AuditTrailDemo'
 
 export default function SetuCase() {
   return (
@@ -58,10 +65,6 @@ export default function SetuCase() {
           transition={{ delay: 0.2 }}
           className="prose prose-slate prose-lg max-w-none"
         >
-          <p className="text-xl text-slate-500 italic">
-            Full case study coming soon. Currently in active development.
-          </p>
-
           <h2>Overview</h2>
           <p>
             Started as a site-level documentation digitisation tool for Military Engineering Services (MES)
@@ -69,17 +72,103 @@ export default function SetuCase() {
             tracking, inventory management, billing, and team communication.
           </p>
 
-          <h2>Key Contributions</h2>
-          <ul>
-            <li>Designed core data model mapping construction hierarchy — projects, structures, and activities — enabling granular tracking at every level</li>
-            <li>Built RCPSP-based project planning with Critical Path Method (CPM) scheduling to handle resource constraints and activity dependencies across concurrent structures</li>
-            <li>Built progress analytics dashboard backed by daily progress updates, enabling real-time visibility into project timelines, delays, and completion rates</li>
-            <li>Implemented inventory change tracking across project sites, capturing material movement and consumption tied to specific activities</li>
-            <li>Designed multi-step review workflows where each progress or inventory update goes through configurable approval stages with correction and rejection support at every step</li>
-            <li>Built in-app messaging with file attachments and end-to-end encryption using Diffie-Hellman key exchange, keeping project communication secure and contextual</li>
-            <li>Implemented comprehensive audit trail — every action that updates a read model is tracked, ensuring full visibility into who did what and when</li>
-            <li>Deployed in one MES division with pilot rollout for additional divisions in progress</li>
-          </ul>
+          {/* Core Features */}
+          <div className="not-prose border-t border-slate-200 mt-12 pt-8 mb-6">
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Core Features</span>
+          </div>
+
+          <h3>Construction Hierarchy</h3>
+          <p>
+            Every construction project breaks down into <strong>structures</strong> (pillars, spans, blocks)
+            and further into <strong>activities</strong> (foundation pour, rebar installation, curing).
+            This three-level hierarchy is the backbone of the platform — progress, inventory, scheduling,
+            and reviews all operate at the activity level, while rollups give project-wide visibility.
+          </p>
+
+          <ProjectHierarchyDemo />
+
+          <h3>RCPSP-Based Planning</h3>
+          <p>
+            Construction projects have <strong>resource constraints</strong> — a single crane can&apos;t be
+            at two structures simultaneously. Activities have <strong>dependencies</strong> — you can&apos;t
+            pour a deck before the pillars are up. The planner uses Resource-Constrained Project Scheduling
+            (RCPSP) with <strong>Critical Path Method (CPM)</strong> to produce a feasible schedule that
+            respects both constraints, and highlights the critical path — the sequence of activities where
+            any delay delays the entire project.
+          </p>
+
+          <RCPSPPlanningDemo />
+
+          <h3>Progress Analytics</h3>
+          <p>
+            Site engineers submit <strong>daily progress updates</strong> for each activity. These feed into
+            analytics that compare <strong>planned vs actual</strong> completion, surface delays early, and
+            track completion rates across the project. When an update shows a site falling behind, the
+            variance is immediately visible — enabling corrective action before deadlines slip.
+          </p>
+
+          <ProgressAnalyticsDemo />
+
+          <h3>Inventory Tracking</h3>
+          <p>
+            Materials flow from <strong>central warehouse to site to activity</strong>. Every allocation
+            and consumption is recorded and tied to a specific activity, so at any point you can see where
+            materials are, how much has been used, and whether the numbers add up. Full reconciliation
+            across all levels ensures nothing goes unaccounted.
+          </p>
+
+          <InventoryTrackingDemo />
+
+          {/* Workflows & Communication */}
+          <div className="not-prose border-t border-slate-200 mt-12 pt-8 mb-6">
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Workflows &amp; Communication</span>
+          </div>
+
+          <h3>Multi-Step Review Workflows</h3>
+          <p>
+            Every progress or inventory update goes through <strong>configurable approval stages</strong>.
+            A site engineer submits, a junior engineer reviews, and a senior engineer gives final approval.
+            At any stage, the reviewer can <strong>reject with a correction note</strong> — the submitter
+            corrects and resubmits. This ensures data accuracy without bottlenecking the process, and every
+            decision is recorded.
+          </p>
+
+          <ReviewWorkflowDemo />
+
+          <h3>E2E Encrypted Messaging</h3>
+          <p>
+            Project communication is built into the platform with <strong>file attachment support</strong>.
+            Messages are secured with <strong>end-to-end encryption using Diffie-Hellman key exchange</strong> —
+            each pair of users establishes a shared secret, and all messages and attachments are encrypted
+            before leaving the device. The server only ever sees ciphertext.
+          </p>
+
+          <E2EMessagingDemo />
+
+          {/* Accountability */}
+          <div className="not-prose border-t border-slate-200 mt-12 pt-8 mb-6">
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Accountability</span>
+          </div>
+
+          <h3>Audit Trail</h3>
+          <p>
+            Every action that updates any read model is tracked — submissions, approvals, rejections,
+            corrections, and system-generated updates. The audit trail ensures full visibility into
+            <strong> who did what and when</strong>, which is critical for government construction
+            projects where accountability and documentation are non-negotiable.
+          </p>
+
+          <AuditTrailDemo />
+
+          {/* Deployment */}
+          <div className="not-prose border-t border-slate-200 mt-12 pt-8 mb-6">
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Deployment</span>
+          </div>
+
+          <h2>Current Status</h2>
+          <p>
+            Deployed in one MES division with pilot rollout for additional divisions in progress.
+          </p>
         </motion.div>
 
         <motion.div

@@ -55,7 +55,7 @@ export default function SetuCase() {
           </div>
           <div>
             <h3 className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-2">Focus</h3>
-            <p className="text-slate-900">RCPSP Planning, Progress Analytics, Inventory Tracking, E2EE Messaging, Review Workflows, Audit Trail, Data Modeling</p>
+            <p className="text-slate-900">RCPSP Planning, Progress Analytics, Inventory Tracking, E2EE Communication, Review Workflows, Audit Trail, Data Modeling</p>
           </div>
         </motion.div>
 
@@ -135,12 +135,13 @@ export default function SetuCase() {
 
           <ReviewWorkflowDemo />
 
-          <h3>E2E Encrypted Messaging</h3>
+          <h3>E2E Encrypted Communication</h3>
           <p>
-            Project communication is built into the platform with <strong>file attachment support</strong>.
-            Messages are secured with <strong>end-to-end encryption using Diffie-Hellman key exchange</strong> —
-            each pair of users establishes a shared secret, and all messages and attachments are encrypted
-            before leaving the device. The server only ever sees ciphertext.
+            All client-server communication is <strong>end-to-end encrypted using Diffie-Hellman key
+            exchange</strong>. Each pair of users establishes a shared secret, and every payload —
+            messages, file attachments, and all data exchanged between client and server — is encrypted
+            before leaving the device. The server only ever sees ciphertext. In-app messaging with
+            <strong> file attachment support</strong> is built on top of this encrypted layer.
           </p>
 
           <E2EMessagingDemo />

@@ -191,7 +191,8 @@ export default function SetuCase() {
 
           <h2>Current Status</h2>
           <p>
-            Deployed in one MES division with pilot rollout for additional divisions in progress.
+            Completed a successful 3-month pilot and is now being adopted in the DGMAP division
+            of Military Engineering Services (MES).
           </p>
         </motion.div>
 

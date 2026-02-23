@@ -252,14 +252,17 @@ export default function EntendreCase() {
           <p>
             Prioritized <strong>composable, testable code</strong>. Filter helpers, API hooks, and UI
             components designed for reuse. Figma specs followed precisely. Rules engine used
-            <strong>declarative JSON</strong> - simpler UI, auditable rules, predictable execution.
+            <strong>declarative JSON</strong> — simpler UI, auditable rules, predictable execution.
           </p>
 
           <h2>Outcome</h2>
           <p>
-            Shipped a full-featured accounting platform: <strong>reliable background jobs at scale</strong>,
-            seamless billing lifecycle, accurate multi-timezone reporting, and consistent UI across
-            complex data views. The rules engine significantly <strong>reduced manual classification work</strong>.
+            Collaborated closely with the team to ship multiple projects under tight deadlines —
+            billing, background infrastructure, reporting, and the rules engine among them.
+            Together we delivered a full-featured accounting platform with <strong>reliable background
+            jobs at scale</strong>, seamless billing lifecycle, accurate multi-timezone reporting, and
+            consistent UI across complex data views. The rules engine significantly <strong>reduced
+            manual classification work</strong> for end users.
           </p>
         </motion.div>
 

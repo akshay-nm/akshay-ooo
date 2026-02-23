@@ -15,15 +15,15 @@ type Step =
   | 'delivered'
 
 const STEP_DESCRIPTIONS: Record<Step, string> = {
-  idle: 'Click to see how messages are secured between two users',
-  'key-gen-a': 'User A generates a private-public key pair',
-  'key-gen-b': 'User B generates a private-public key pair',
+  idle: 'Click to see how all client-server communication is secured',
+  'key-gen-a': 'Client A generates a private-public key pair',
+  'key-gen-b': 'Client B generates a private-public key pair',
   exchange: 'Public keys are exchanged over the network',
-  'shared-secret': 'Both users independently compute the same shared secret',
-  encrypt: 'Message + attachment encrypted with the shared secret',
-  send: 'Encrypted payload sent — server cannot read it',
-  decrypt: 'User B decrypts with their copy of the shared secret',
-  delivered: 'Message and attachment delivered securely',
+  'shared-secret': 'Both clients independently compute the same shared secret',
+  encrypt: 'All data — messages, attachments, updates — encrypted with the shared secret',
+  send: 'Encrypted payload sent — server only sees ciphertext',
+  decrypt: 'Client B decrypts with their copy of the shared secret',
+  delivered: 'Data delivered securely — server never sees plaintext',
 }
 
 const STEP_ORDER: Step[] = [
@@ -67,7 +67,7 @@ export function E2EMessagingDemo() {
   return (
     <div className="my-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 not-prose">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-bold text-slate-900">E2E Encrypted Messaging</h3>
+        <h3 className="text-lg font-bold text-slate-900">E2E Encrypted Communication</h3>
         <span className={`text-xs font-medium px-2 py-1 rounded ${
           step === 'delivered' ? 'bg-green-100 text-green-700' :
           step !== 'idle' ? 'bg-blue-100 text-blue-700' :
@@ -81,7 +81,7 @@ export function E2EMessagingDemo() {
         <div className="flex items-start justify-between gap-4">
           {/* User A */}
           <div className="flex-1 flex flex-col items-center gap-2">
-            <UserBox label="User A" sublabel="Site Engineer" active={isActive('key-gen-a')} highlight={step === 'key-gen-a' || step === 'encrypt'} />
+            <UserBox label="Client A" sublabel="Site Engineer" active={isActive('key-gen-a')} highlight={step === 'key-gen-a' || step === 'encrypt'} />
 
             <AnimatePresence>
               {isActive('key-gen-a') && (
@@ -169,7 +169,7 @@ export function E2EMessagingDemo() {
 
           {/* User B */}
           <div className="flex-1 flex flex-col items-center gap-2">
-            <UserBox label="User B" sublabel="Junior Engineer" active={isActive('key-gen-b')} highlight={step === 'key-gen-b' || step === 'decrypt'} />
+            <UserBox label="Client B" sublabel="Junior Engineer" active={isActive('key-gen-b')} highlight={step === 'key-gen-b' || step === 'decrypt'} />
 
             <AnimatePresence>
               {isActive('key-gen-b') && (
@@ -209,7 +209,7 @@ export function E2EMessagingDemo() {
         disabled={isRunning}
         className="w-full px-4 py-3 bg-slate-900 text-white font-medium rounded-lg hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
       >
-        {isRunning ? 'Running...' : 'Send Encrypted Message'}
+        {isRunning ? 'Running...' : 'Run E2E Communication Flow'}
       </button>
     </div>
   )

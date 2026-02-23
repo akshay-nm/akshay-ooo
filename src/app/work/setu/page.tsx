@@ -55,7 +55,7 @@ export default function SetuCase() {
           </div>
           <div>
             <h3 className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-2">Focus</h3>
-            <p className="text-slate-900">RCPSP Planning, Progress Analytics, Inventory Tracking, E2EE Communication, Review Workflows, Audit Trail, Data Modeling</p>
+            <p className="text-slate-900">RCPSP Planning, Progress Analytics, Inventory Tracking, Messaging, AI Copilot, E2EE Communication, Review Workflows, Audit Trail, Data Modeling</p>
           </div>
         </motion.div>
 
@@ -145,6 +145,23 @@ export default function SetuCase() {
           </p>
 
           <E2EMessagingDemo />
+
+          <h3>In-App Messaging</h3>
+          <p>
+            Project communication is built directly into the platform — no need to switch to WhatsApp
+            or email. Team members can <strong>message within project context</strong> with full
+            <strong> file attachment support</strong> for sharing site photos, documents, and reports.
+            All messages flow through the E2EE layer, so conversations stay private and on-record.
+          </p>
+
+          <h3>AI Copilot</h3>
+          <p>
+            An AI copilot assists users across the platform. For data entry, it <strong>suggests values
+            and auto-fills fields</strong> based on historical patterns, reducing manual effort and
+            errors during daily updates. For project oversight, it provides <strong>summaries and
+            insights</strong> across project data — surfacing trends, flagging anomalies, and helping
+            decision-makers stay on top of progress without digging through raw numbers.
+          </p>
 
           {/* Accountability */}
           <div className="not-prose border-t border-slate-200 mt-12 pt-8 mb-6">

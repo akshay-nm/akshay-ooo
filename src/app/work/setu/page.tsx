@@ -48,7 +48,7 @@ export default function SetuCase() {
           </div>
           <div>
             <h3 className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-2">Focus</h3>
-            <p className="text-slate-900">RCPSP Planning, Progress Analytics, Inventory Tracking, E2EE Messaging, Review Workflows, Data Modeling</p>
+            <p className="text-slate-900">RCPSP Planning, Progress Analytics, Inventory Tracking, E2EE Messaging, Review Workflows, Audit Trail, Data Modeling</p>
           </div>
         </motion.div>
 
@@ -77,7 +77,7 @@ export default function SetuCase() {
             <li>Implemented inventory change tracking across project sites, capturing material movement and consumption tied to specific activities</li>
             <li>Designed multi-step review workflows where each progress or inventory update goes through configurable approval stages with correction and rejection support at every step</li>
             <li>Built in-app messaging with file attachments and end-to-end encryption using Diffie-Hellman key exchange, keeping project communication secure and contextual</li>
-            <li>Built backend primitives for transaction types, audit logs, and rule-based posting</li>
+            <li>Implemented comprehensive audit trail — every action that updates a read model is tracked, ensuring full visibility into who did what and when</li>
             <li>Deployed in one MES division with pilot rollout for additional divisions in progress</li>
           </ul>
         </motion.div>

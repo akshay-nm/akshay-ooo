@@ -9,6 +9,8 @@ import { InventoryTrackingDemo } from '@/components/demos/InventoryTrackingDemo'
 import { ReviewWorkflowDemo } from '@/components/demos/ReviewWorkflowDemo'
 import { E2EMessagingDemo } from '@/components/demos/E2EMessagingDemo'
 import { AuditTrailDemo } from '@/components/demos/AuditTrailDemo'
+import { MessagingDemo } from '@/components/demos/MessagingDemo'
+import { AICopilotDemo } from '@/components/demos/AICopilotDemo'
 
 export default function SetuCase() {
   return (
@@ -154,6 +156,8 @@ export default function SetuCase() {
             All messages flow through the E2EE layer, so conversations stay private and on-record.
           </p>
 
+          <MessagingDemo />
+
           <h3>AI Copilot</h3>
           <p>
             An AI copilot assists users across the platform. For data entry, it <strong>suggests values
@@ -162,6 +166,8 @@ export default function SetuCase() {
             insights</strong> across project data — surfacing trends, flagging anomalies, and helping
             decision-makers stay on top of progress without digging through raw numbers.
           </p>
+
+          <AICopilotDemo />
 
           {/* Accountability */}
           <div className="not-prose border-t border-slate-200 mt-12 pt-8 mb-6">

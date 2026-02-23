@@ -72,7 +72,7 @@ export default function EntendreCase() {
           </div>
           <div>
             <h3 className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-2">Focus</h3>
-            <p className="text-slate-900">Frontend, Background Jobs, Billing</p>
+            <p className="text-slate-900">AI Agents, Accounting Automation, Integrations</p>
           </div>
         </motion.div>
 

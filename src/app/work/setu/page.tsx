@@ -71,12 +71,12 @@ export default function SetuCase() {
 
           <h2>Key Contributions</h2>
           <ul>
-            <li>Designed core data model (projects → structures → activities)</li>
-            <li>Built RCPSP-based project planning with Critical Path Method (CPM) scheduling</li>
-            <li>Built progress analytics backed by daily progress updates for real-time project tracking</li>
-            <li>Implemented inventory change tracking across project sites</li>
-            <li>Designed multi-step review workflows for each update with correction support</li>
-            <li>Built in-app messaging with attachment support and end-to-end encryption (Diffie-Hellman key exchange)</li>
+            <li>Designed core data model mapping construction hierarchy — projects, structures, and activities — enabling granular tracking at every level</li>
+            <li>Built RCPSP-based project planning with Critical Path Method (CPM) scheduling to handle resource constraints and activity dependencies across concurrent structures</li>
+            <li>Built progress analytics dashboard backed by daily progress updates, enabling real-time visibility into project timelines, delays, and completion rates</li>
+            <li>Implemented inventory change tracking across project sites, capturing material movement and consumption tied to specific activities</li>
+            <li>Designed multi-step review workflows where each progress or inventory update goes through configurable approval stages with correction and rejection support at every step</li>
+            <li>Built in-app messaging with file attachments and end-to-end encryption using Diffie-Hellman key exchange, keeping project communication secure and contextual</li>
             <li>Built backend primitives for transaction types, audit logs, and rule-based posting</li>
             <li>Deployed in one MES division with pilot rollout for additional divisions in progress</li>
           </ul>

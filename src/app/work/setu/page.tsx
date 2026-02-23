@@ -28,7 +28,7 @@ export default function SetuCase() {
             Setu
           </h1>
           <p className="text-2xl text-slate-600 leading-relaxed">
-            Construction accounting platform for government contractors
+            Construction project management platform for government contractors
           </p>
         </motion.header>
 
@@ -48,7 +48,7 @@ export default function SetuCase() {
           </div>
           <div>
             <h3 className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-2">Focus</h3>
-            <p className="text-slate-900">Data Modeling, Architecture</p>
+            <p className="text-slate-900">RCPSP Planning, Progress Analytics, E2EE Messaging, Review Workflows, Data Modeling</p>
           </div>
         </motion.div>
 
@@ -64,13 +64,19 @@ export default function SetuCase() {
 
           <h2>Overview</h2>
           <p>
-            Building an end-to-end accounting workflow for Military Engineering Services (MES)
-            contractor billing, material issuance, and project-level reconciliation.
+            Started as a site-level documentation digitisation tool for Military Engineering Services (MES)
+            and evolved into a full construction project management platform covering planning, progress
+            tracking, inventory management, billing, and team communication.
           </p>
 
           <h2>Key Contributions</h2>
           <ul>
             <li>Designed core data model (projects → structures → activities)</li>
+            <li>Built RCPSP-based project planning with Critical Path Method (CPM) scheduling</li>
+            <li>Built progress analytics backed by daily progress updates for real-time project tracking</li>
+            <li>Implemented inventory change tracking across project sites</li>
+            <li>Designed multi-step review workflows for each update with correction support</li>
+            <li>Built in-app messaging with attachment support and end-to-end encryption (Diffie-Hellman key exchange)</li>
             <li>Built backend primitives for transaction types, audit logs, and rule-based posting</li>
             <li>Deployed in one MES division with pilot rollout for additional divisions in progress</li>
           </ul>

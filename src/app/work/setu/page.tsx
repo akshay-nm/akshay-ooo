@@ -48,7 +48,7 @@ export default function SetuCase() {
           </div>
           <div>
             <h3 className="text-sm font-medium text-slate-500 uppercase tracking-wide mb-2">Focus</h3>
-            <p className="text-slate-900">RCPSP Planning, Progress Analytics, E2EE Messaging, Review Workflows, Data Modeling</p>
+            <p className="text-slate-900">RCPSP Planning, Progress Analytics, Inventory Tracking, E2EE Messaging, Review Workflows, Data Modeling</p>
           </div>
         </motion.div>
 

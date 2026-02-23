@@ -7,10 +7,10 @@ const caseStudies = [
   {
     slug: 'setu',
     title: 'Setu',
-    description: 'Construction accounting platform for government contractors',
+    description: 'Construction project management platform',
     role: 'Founder',
     timeline: '2025 - Present',
-    highlights: ['Data Modeling', 'Audit Logs', 'Rule-based Posting'],
+    highlights: ['RCPSP Planning', 'E2EE Messaging', 'Review Workflows'],
   },
   {
     slug: 'entendre',

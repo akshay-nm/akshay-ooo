@@ -28,7 +28,7 @@ export default function SetuCase() {
             Setu
           </h1>
           <p className="text-2xl text-slate-600 leading-relaxed">
-            Construction project management platform for government organizations
+            Construction project management platform
           </p>
         </motion.header>
 

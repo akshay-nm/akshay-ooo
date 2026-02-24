@@ -61,6 +61,22 @@ export default function SetuCase() {
           </div>
         </motion.div>
 
+        {/* TL;DR */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="p-6 bg-orange-50 border border-orange-100 rounded-xl mb-16"
+        >
+          <h3 className="text-sm font-medium text-orange-600 uppercase tracking-wide mb-3">TL;DR</h3>
+          <ul className="space-y-2 text-slate-700">
+            <li>Built a <strong>construction project management platform</strong> from scratch — planning, progress tracking, inventory, billing, and communication</li>
+            <li>Implemented <strong>RCPSP scheduling with CPM</strong> to produce feasible plans that respect resource constraints and dependencies</li>
+            <li>All client-server communication is <strong>end-to-end encrypted</strong> using Diffie-Hellman key exchange — server never sees plaintext</li>
+            <li>Shipped <strong>multi-step review workflows</strong>, <strong>AI copilot</strong> for data entry and insights, and a full <strong>audit trail</strong> across all operations</li>
+          </ul>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -65,7 +65,7 @@ export function ProgressAnalyticsDemo() {
         )}
       </div>
 
-      <div className="bg-white rounded-xl p-4 mb-6">
+      <div className="bg-white rounded-xl p-4 mb-6 overflow-x-auto">
         {/* Chart */}
         <div className="flex items-end gap-3 mb-4" style={{ height: BAR_HEIGHT + 20 }}>
           {DAILY_UPDATES.map((update, index) => {

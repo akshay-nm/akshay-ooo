@@ -67,8 +67,8 @@ export function InventoryTrackingDemo() {
         </span>
       </div>
 
-      <div className="bg-white rounded-xl p-6 mb-6">
-        <div className="flex items-center justify-between gap-2">
+      <div className="bg-white rounded-xl p-4 sm:p-6 mb-6 overflow-x-auto">
+        <div className="flex items-center justify-between gap-2 min-w-[420px]">
           {/* Warehouse */}
           <InventoryBox
             label="Warehouse"

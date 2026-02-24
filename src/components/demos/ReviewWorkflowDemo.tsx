@@ -86,7 +86,8 @@ export function ReviewWorkflowDemo() {
         </span>
       </div>
 
-      <div className="bg-white rounded-xl p-4 mb-6">
+      <div className="bg-white rounded-xl p-4 mb-6 overflow-x-auto">
+        <div className="min-w-[380px]">
         {/* Swimlane headers */}
         <div className="grid grid-cols-3 gap-3 mb-4">
           <div className="text-center text-[10px] font-medium text-slate-500 uppercase tracking-wider p-1.5 bg-slate-50 rounded">
@@ -166,6 +167,7 @@ export function ReviewWorkflowDemo() {
             </motion.div>
           )}
         </AnimatePresence>
+        </div>
       </div>
 
       <div className="text-sm text-slate-600 mb-4 h-6">

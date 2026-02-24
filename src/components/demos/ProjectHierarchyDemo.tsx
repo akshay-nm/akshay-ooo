@@ -81,16 +81,16 @@ export function ProjectHierarchyDemo() {
     <div className="my-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 not-prose">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-bold text-slate-900">Construction Hierarchy</h3>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           {(['project', 'structure', 'activity'] as const).map((type) => (
-            <span key={type} className={`text-[10px] font-medium px-2 py-0.5 rounded ${TYPE_STYLES[type].badge}`}>
+            <span key={type} className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${TYPE_STYLES[type].badge}`}>
               {type}
             </span>
           ))}
         </div>
       </div>
 
-      <div className="bg-white rounded-xl p-6 mb-6">
+      <div className="bg-white rounded-xl p-4 sm:p-6 mb-6 overflow-x-auto">
         <TreeNodeView
           node={PROJECT_TREE}
           expandedLevel={expandedLevel}

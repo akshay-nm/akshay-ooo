@@ -90,7 +90,7 @@ export function MessagingDemo() {
       </div>
 
       {/* Project context header */}
-      <div className="bg-white rounded-t-xl border border-slate-200 border-b-0 px-4 py-2 flex items-center gap-2">
+      <div className="bg-white rounded-t-xl border border-slate-200 border-b-0 px-4 py-2 flex items-center gap-2 overflow-x-auto">
         <span className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">Project</span>
         <span className="text-xs font-medium text-slate-700">Bridge Construction — NH48</span>
         <span className="text-slate-300 mx-1">/</span>

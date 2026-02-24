@@ -78,6 +78,14 @@ export default function About() {
               >
                 LinkedIn
               </a>
+              <a
+                href="https://buymeacoffee.com/akshaynm92"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-600 transition-colors"
+              >
+                Buy me a coffee
+              </a>
             </div>
           </div>
         </motion.div>

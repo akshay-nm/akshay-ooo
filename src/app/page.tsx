@@ -195,12 +195,22 @@ export default function Home() {
             <p className="text-slate-400 mb-8 max-w-lg mx-auto">
               Looking for <strong className="text-slate-200">fintech teams</strong> building accounting, billing, or financial infrastructure.
             </p>
-            <a
-              href="mailto:akshay.nm92@gmail.com"
-              className="inline-block px-6 py-3 bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-600 transition-colors"
-            >
-              Get in touch
-            </a>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="mailto:akshay.nm92@gmail.com"
+                className="inline-block px-6 py-3 bg-orange-500 text-white font-medium rounded-lg hover:bg-orange-600 transition-colors"
+              >
+                Get in touch
+              </a>
+              <a
+                href="https://buymeacoffee.com/akshaynm92"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 border border-slate-600 text-slate-300 font-medium rounded-lg hover:border-slate-400 hover:text-white transition-colors"
+              >
+                Buy me a coffee
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

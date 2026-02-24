@@ -140,9 +140,9 @@ export default function SetuCase() {
           <h3>E2E Encrypted Communication</h3>
           <p>
             All client-server communication is <strong>end-to-end encrypted using Diffie-Hellman key
-            exchange</strong>. Each pair of users establishes a shared secret, and every payload —
-            messages, file attachments, and all data exchanged between client and server — is encrypted
-            before leaving the device. The server only ever sees ciphertext. In-app messaging with
+            exchange</strong>. Each client establishes a shared secret with the server, and every payload —
+            messages, file attachments, progress updates, and all data — is encrypted
+            before leaving the device. Nothing travels in plaintext. In-app messaging with
             <strong> file attachment support</strong> is built on top of this encrypted layer.
           </p>
 

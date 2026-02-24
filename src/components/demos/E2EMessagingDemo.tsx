@@ -16,14 +16,14 @@ type Step =
 
 const STEP_DESCRIPTIONS: Record<Step, string> = {
   idle: 'Click to see how all client-server communication is secured',
-  'key-gen-a': 'Client A generates a private-public key pair',
-  'key-gen-b': 'Client B generates a private-public key pair',
+  'key-gen-a': 'Client generates a private-public key pair',
+  'key-gen-b': 'Server generates a private-public key pair',
   exchange: 'Public keys are exchanged over the network',
-  'shared-secret': 'Both clients independently compute the same shared secret',
-  encrypt: 'All data — messages, attachments, updates — encrypted with the shared secret',
-  send: 'Encrypted payload sent — server only sees ciphertext',
-  decrypt: 'Client B decrypts with their copy of the shared secret',
-  delivered: 'Data delivered securely — server never sees plaintext',
+  'shared-secret': 'Both sides independently compute the same shared secret',
+  encrypt: 'All data — messages, updates, files — encrypted with the shared secret before leaving the device',
+  send: 'Encrypted payload sent over the network — only ciphertext in transit',
+  decrypt: 'Server decrypts with its copy of the shared secret',
+  delivered: 'Data delivered securely — plaintext never leaves the device unencrypted',
 }
 
 const STEP_ORDER: Step[] = [
@@ -79,9 +79,9 @@ export function E2EMessagingDemo() {
 
       <div className="bg-white rounded-xl p-4 sm:p-5 mb-6 overflow-x-auto">
         <div className="flex items-start justify-between gap-4 min-w-[420px]">
-          {/* User A */}
+          {/* Client */}
           <div className="flex-1 flex flex-col items-center gap-2">
-            <UserBox label="Client A" sublabel="Site Engineer" active={isActive('key-gen-a')} highlight={step === 'key-gen-a' || step === 'encrypt'} />
+            <UserBox label="Client" sublabel="Site Engineer" active={isActive('key-gen-a')} highlight={step === 'key-gen-a' || step === 'encrypt'} />
 
             <AnimatePresence>
               {isActive('key-gen-a') && (
@@ -101,7 +101,7 @@ export function E2EMessagingDemo() {
             </AnimatePresence>
           </div>
 
-          {/* Middle: Exchange / Message */}
+          {/* Middle: Exchange / Payload */}
           <div className="flex-1 flex flex-col items-center gap-2 pt-12">
             <AnimatePresence>
               {isActive('exchange') && !isActive('encrypt') && (
@@ -112,9 +112,9 @@ export function E2EMessagingDemo() {
                   className="text-center space-y-2"
                 >
                   <div className="flex items-center gap-1 justify-center">
-                    <motion.span animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }} className="text-xs text-blue-500">A</motion.span>
+                    <motion.span animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1 }} className="text-xs text-blue-500">C</motion.span>
                     <span className="text-slate-400 text-xs">&harr;</span>
-                    <motion.span animate={{ x: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 1 }} className="text-xs text-purple-500">B</motion.span>
+                    <motion.span animate={{ x: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 1 }} className="text-xs text-purple-500">S</motion.span>
                   </div>
                   <div className="text-[10px] text-slate-400">Public key exchange</div>
                 </motion.div>
@@ -128,7 +128,7 @@ export function E2EMessagingDemo() {
                   animate={{ opacity: 1 }}
                   className="text-center space-y-2"
                 >
-                  {/* Message */}
+                  {/* Payload */}
                   <motion.div
                     animate={step === 'send' ? { x: [0, 30], opacity: [1, 0.8] } : {}}
                     className={`p-2 rounded-lg border text-xs ${
@@ -138,7 +138,7 @@ export function E2EMessagingDemo() {
                     {isActive('send') ? (
                       <span className="font-mono text-slate-500">a3f8...encrypted...9b2c</span>
                     ) : (
-                      <span className="text-blue-700">&quot;Foundation pour complete&quot;</span>
+                      <span className="text-blue-700">Progress update + files</span>
                     )}
                   </motion.div>
 
@@ -150,7 +150,7 @@ export function E2EMessagingDemo() {
                       isActive('send') ? 'bg-slate-50 border-slate-200 text-slate-400' : 'bg-blue-50 border-blue-200 text-blue-600'
                     }`}
                   >
-                    {isActive('send') ? 'encrypted-file.enc' : 'site-photo.jpg'}
+                    {isActive('send') ? 'encrypted-payload.enc' : 'site-photo.jpg'}
                   </motion.div>
 
                   {isActive('send') && !isActive('decrypt') && (
@@ -159,7 +159,7 @@ export function E2EMessagingDemo() {
                       animate={{ opacity: 1 }}
                       className="text-[10px] text-slate-400"
                     >
-                      Server sees only ciphertext
+                      Only ciphertext in transit
                     </motion.div>
                   )}
                 </motion.div>
@@ -167,9 +167,9 @@ export function E2EMessagingDemo() {
             </AnimatePresence>
           </div>
 
-          {/* User B */}
+          {/* Server */}
           <div className="flex-1 flex flex-col items-center gap-2">
-            <UserBox label="Client B" sublabel="Junior Engineer" active={isActive('key-gen-b')} highlight={step === 'key-gen-b' || step === 'decrypt'} />
+            <UserBox label="Server" sublabel="Setu Backend" active={isActive('key-gen-b')} highlight={step === 'key-gen-b' || step === 'decrypt'} />
 
             <AnimatePresence>
               {isActive('key-gen-b') && (
@@ -191,8 +191,8 @@ export function E2EMessagingDemo() {
             <AnimatePresence>
               {isActive('delivered') && (
                 <motion.div initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="w-full p-2 bg-green-50 border border-green-200 rounded-lg text-center">
-                  <div className="text-xs text-green-700 font-medium">&quot;Foundation pour complete&quot;</div>
-                  <div className="text-[10px] text-green-500 mt-0.5">site-photo.jpg</div>
+                  <div className="text-xs text-green-700 font-medium">Data received &amp; decrypted</div>
+                  <div className="text-[10px] text-green-500 mt-0.5">Records updated securely</div>
                 </motion.div>
               )}
             </AnimatePresence>

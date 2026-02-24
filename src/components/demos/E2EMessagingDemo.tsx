@@ -77,8 +77,8 @@ export function E2EMessagingDemo() {
         </span>
       </div>
 
-      <div className="bg-white rounded-xl p-5 mb-6">
-        <div className="flex items-start justify-between gap-4">
+      <div className="bg-white rounded-xl p-4 sm:p-5 mb-6 overflow-x-auto">
+        <div className="flex items-start justify-between gap-4 min-w-[420px]">
           {/* User A */}
           <div className="flex-1 flex flex-col items-center gap-2">
             <UserBox label="Client A" sublabel="Site Engineer" active={isActive('key-gen-a')} highlight={step === 'key-gen-a' || step === 'encrypt'} />

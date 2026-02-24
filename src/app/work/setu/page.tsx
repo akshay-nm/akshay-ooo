@@ -210,6 +210,14 @@ export default function SetuCase() {
             Completed a successful 3-month pilot and is now being adopted in the DGMAP division
             of Military Engineering Services (MES).
           </p>
+
+          <h2>How It Was Built</h2>
+          <p>
+            The entire platform — backend, frontend, data models, E2EE layer, scheduling engine,
+            and every demo on this page — was built using <strong>Claude Code</strong>. Not a single
+            line of code was written manually. Architecture decisions, implementation, debugging,
+            and iteration — all done through AI-assisted development.
+          </p>
         </motion.div>
 
         <motion.div

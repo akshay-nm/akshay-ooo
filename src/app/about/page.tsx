@@ -35,14 +35,7 @@ export default function About() {
               This approach has compressed delivery from months to hours.
             </p>
 
-            <h2>Background</h2>
-            <p>
-              B.Tech in Computer Science from AKTU (2013-2017). Since then, I&apos;ve progressed from
-              building web applications to owning entire systems—billing, background infrastructure,
-              and reporting at scale.
-            </p>
-
-            <h2>Current</h2>
+<h2>Current</h2>
             <p>
               Building <strong>Setu</strong>—a construction accounting platform for government
               contractors. Previously at <strong>Entendre Finance</strong>, where I joined pre-launch

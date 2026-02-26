@@ -18,8 +18,8 @@ export default function NetworkingPage() {
           animate={{ opacity: 1 }}
           className="mb-12"
         >
-          <Link href="/learning" className="text-slate-500 hover:text-slate-700 transition-colors">
-            &larr; Back to learning
+          <Link href="/notes" className="text-slate-500 hover:text-slate-700 transition-colors">
+            &larr; Back to notes
           </Link>
         </motion.div>
 
@@ -711,7 +711,7 @@ export default function NetworkingPage() {
           {/* Navigation */}
           <nav className="mt-16 pt-8 border-t border-slate-200">
             <Link
-              href="/learning/networking/network-layer"
+              href="/notes/networking/network-layer"
               className="group flex items-center justify-between p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition-colors"
             >
               <div>

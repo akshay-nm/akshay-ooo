@@ -14,8 +14,8 @@ export default function NetworkLayerPage() {
           animate={{ opacity: 1 }}
           className="mb-12"
         >
-          <Link href="/learning" className="text-slate-500 hover:text-slate-700 transition-colors">
-            &larr; Back to Learning
+          <Link href="/notes" className="text-slate-500 hover:text-slate-700 transition-colors">
+            &larr; Back to Notes
           </Link>
         </motion.div>
 
@@ -560,7 +560,7 @@ export default function NetworkLayerPage() {
           {/* Navigation */}
           <nav className="mt-16 pt-8 border-t border-slate-200">
             <Link
-              href="/learning/networking"
+              href="/notes/networking"
               className="group flex items-center justify-between p-4 rounded-lg border border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-colors"
             >
               <span className="text-slate-400 group-hover:text-blue-600 text-xl">&larr;</span>

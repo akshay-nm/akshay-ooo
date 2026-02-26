@@ -26,7 +26,7 @@ const topics = [
   },
 ]
 
-export default function LearningPage() {
+export default function NotesPage() {
   return (
     <div className="py-20">
       <div className="max-w-3xl mx-auto px-6">
@@ -38,7 +38,7 @@ export default function LearningPage() {
           className="mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            Learning
+            Notes
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed">
             Concepts I&apos;m exploring, explained through illustrations and examples.
@@ -76,7 +76,7 @@ export default function LearningPage() {
                   {topic.articles.map((article) => (
                     <Link
                       key={article.slug}
-                      href={`/learning/${article.slug}`}
+                      href={`/notes/${article.slug}`}
                       className="flex items-center gap-4 p-4 hover:bg-slate-50 transition-colors group"
                     >
                       <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500 group-hover:bg-orange-100 group-hover:text-orange-600 transition-colors shrink-0">

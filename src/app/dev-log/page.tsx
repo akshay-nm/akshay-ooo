@@ -156,6 +156,31 @@ const entries: Entry[] = [
   },
 ]
 
+const NOTE_COLORS = [
+  'bg-yellow-50 border-yellow-200/60',
+  'bg-pink-50 border-pink-200/60',
+  'bg-blue-50 border-blue-200/60',
+  'bg-green-50 border-green-200/60',
+]
+
+// Deterministic pseudo-random rotation per entry (avoids hydration mismatch)
+function seededRotation(index: number) {
+  const x = Math.sin(index * 9301 + 4927) * 49297
+  return ((x - Math.floor(x)) * 6 - 3) // range: -3 to 3 degrees
+}
+
+const TAG_COLORS: Record<string, string> = {
+  ai: 'bg-yellow-100/80 text-yellow-700',
+  architecture: 'bg-yellow-100/80 text-yellow-700',
+  setu: 'bg-yellow-100/80 text-yellow-700',
+  networking: 'bg-pink-100/80 text-pink-700',
+  tcp: 'bg-pink-100/80 text-pink-700',
+  react: 'bg-blue-100/80 text-blue-700',
+  animation: 'bg-blue-100/80 text-blue-700',
+  tailwind: 'bg-green-100/80 text-green-700',
+  css: 'bg-green-100/80 text-green-700',
+}
+
 function formatDate(dateStr: string) {
   const date = new Date(dateStr + 'T00:00:00')
   return date.toLocaleDateString('en-US', {
@@ -183,15 +208,17 @@ export default function DevLogPage() {
           </p>
         </motion.header>
 
-        <div className="space-y-10">
+        <div className="space-y-8">
           {entries.map((entry, i) => (
             <motion.div
               key={entry.date + entry.title}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 16, rotate: 0 }}
+              animate={{ opacity: 1, y: 0, rotate: seededRotation(i) }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
               transition={{ delay: i * 0.08, duration: 0.4 }}
+              className={`rounded-sm border p-6 shadow-sm hover:shadow-md transition-shadow ${NOTE_COLORS[i % NOTE_COLORS.length]}`}
             >
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-3">
                 <time className="text-xs font-medium text-slate-400 tabular-nums">
                   {formatDate(entry.date)}
                 </time>
@@ -199,7 +226,7 @@ export default function DevLogPage() {
                   {entry.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 text-xs font-medium rounded-full bg-slate-100 text-slate-500"
+                      className={`px-2 py-0.5 text-xs font-medium rounded-full ${TAG_COLORS[tag] || 'bg-slate-100 text-slate-500'}`}
                     >
                       {tag}
                     </span>

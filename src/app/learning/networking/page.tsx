@@ -28,20 +28,84 @@ export default function NetworkingPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-16"
+          className="mb-12"
         >
+          <div className="flex items-center gap-3 mb-4">
+            <span className="px-2 py-1 text-xs font-medium bg-slate-100 text-slate-700 rounded-full">
+              Layer 1
+            </span>
+            <span className="px-2 py-1 text-xs font-medium bg-orange-100 text-orange-700 rounded-full">
+              Layer 2
+            </span>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            Networking
+            Physical &amp; Data Link Layers
           </h1>
+          <p className="text-xl text-slate-600 leading-relaxed">
+            Ethernet frames, MAC addresses, error detection, and how bits become meaningful data.
+          </p>
         </motion.header>
 
         {/* Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
           className="prose prose-slate prose-lg max-w-none"
         >
+          {/* Learning Objectives */}
+          <section className="not-prose mb-12">
+            <div className="rounded-xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-6">
+              <h2 className="text-lg font-semibold text-slate-900 mb-4">
+                After reading this, you should be able to:
+              </h2>
+              <div className="grid gap-3">
+                <div className="flex items-start gap-3">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-orange-100 text-orange-700 text-xs font-bold shrink-0">1</span>
+                  <span className="text-sm text-slate-700">
+                    <strong>Identify the parts of an Ethernet frame</strong> — preamble, SFD, MAC addresses,
+                    EtherType, payload, and FCS
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-orange-100 text-orange-700 text-xs font-bold shrink-0">2</span>
+                  <span className="text-sm text-slate-700">
+                    <strong>Explain MAC address structure</strong> — OUI vs device-specific portions,
+                    unicast/multicast bit, universal/local bit
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-orange-100 text-orange-700 text-xs font-bold shrink-0">3</span>
+                  <span className="text-sm text-slate-700">
+                    <strong>Distinguish unicast, broadcast, and multicast</strong> — when each is used
+                    and how devices decide whether to process a frame
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-orange-100 text-orange-700 text-xs font-bold shrink-0">4</span>
+                  <span className="text-sm text-slate-700">
+                    <strong>Describe CSMA/CD</strong> — how devices detect collisions and why the
+                    64-byte minimum frame size exists
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-orange-100 text-orange-700 text-xs font-bold shrink-0">5</span>
+                  <span className="text-sm text-slate-700">
+                    <strong>Explain why CRC beats simple checksums</strong> — how polynomial division
+                    detects burst errors that addition-based checksums miss
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-orange-100 text-orange-700 text-xs font-bold shrink-0">6</span>
+                  <span className="text-sm text-slate-700">
+                    <strong>Describe how ARP bridges Layer 2 and Layer 3</strong> — resolving IP addresses
+                    to MAC addresses on the local network
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* OSI Context */}
           <section className="mb-12">
             <h2>Layers of Abstraction</h2>

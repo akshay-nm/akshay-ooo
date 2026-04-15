@@ -37,13 +37,12 @@ export default function About() {
 
 <h2>Current</h2>
             <p>
-              Building <strong>Setu</strong>—a construction accounting platform for government
-              contractors. Previously at <strong>Entendre Finance</strong>, where I joined pre-launch
+              Previously at <strong>Entendre Finance</strong>, where I joined pre-launch
               and grew from implementing specs to owning billing, background jobs, and financial
               reporting over two years.
             </p>
 
-            <h2>Get in Touch</h2>
+<h2>Get in Touch</h2>
             <p>
               Looking for fintech teams building accounting, billing, or financial infrastructure.
             </p>

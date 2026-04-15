@@ -131,7 +131,7 @@ const entries: Entry[] = [
         </div>
       </>
     ),
-    tags: ['ai', 'architecture', 'setu'],
+    tags: ['ai', 'architecture'],
   },
   {
     date: '2026-03-08',
@@ -172,7 +172,6 @@ function seededRotation(index: number) {
 const TAG_COLORS: Record<string, string> = {
   ai: 'bg-yellow-100/80 text-yellow-700',
   architecture: 'bg-yellow-100/80 text-yellow-700',
-  setu: 'bg-yellow-100/80 text-yellow-700',
   networking: 'bg-pink-100/80 text-pink-700',
   tcp: 'bg-pink-100/80 text-pink-700',
   react: 'bg-blue-100/80 text-blue-700',

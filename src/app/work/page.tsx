@@ -5,14 +5,6 @@ import { motion } from 'framer-motion'
 
 const caseStudies = [
   {
-    slug: 'setu',
-    title: 'Setu',
-    description: 'Construction project management platform',
-    role: 'Founder',
-    timeline: '2025 - Present',
-    highlights: ['RCPSP Planning', 'E2EE Messaging', 'Review Workflows'],
-  },
-  {
     slug: 'entendre',
     title: 'Entendre Finance',
     description: 'Double-entry crypto accounting with AI-assisted workflows',

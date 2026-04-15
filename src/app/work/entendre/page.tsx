@@ -273,13 +273,7 @@ export default function EntendreCase() {
           transition={{ delay: 0.3 }}
           className="mt-20 pt-10 border-t border-slate-200"
         >
-          <div className="flex justify-between items-center">
-            <Link
-              href="/work/setu"
-              className="text-orange-500 font-medium hover:text-orange-600 transition-colors"
-            >
-              &larr; Previous: Setu
-            </Link>
+          <div className="flex justify-end items-center">
             <Link
               href="/work/poplink"
               className="text-orange-500 font-medium hover:text-orange-600 transition-colors"

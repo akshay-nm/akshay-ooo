@@ -12,13 +12,6 @@ const skills = [
 
 const caseStudies = [
   {
-    slug: 'setu',
-    title: 'Setu',
-    description: 'Construction accounting platform for government contractors',
-    role: 'Founder',
-    timeline: '2025 - Present',
-  },
-  {
     slug: 'entendre',
     title: 'Entendre Finance',
     description: 'Double-entry crypto accounting with AI-assisted workflows',

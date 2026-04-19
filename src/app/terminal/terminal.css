@@ -1,0 +1,44 @@
+.terminal-scope {
+  --bg: #000000;
+  --fg: #00ff9c;
+  --muted: #2f7a5a;
+  --accent: #00ff9c;
+  --accent-glow: rgba(0, 255, 156, 0.55);
+  --line: rgba(0, 255, 156, 0.18);
+
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  min-height: 100vh;
+}
+
+@keyframes terminal-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.terminal-scope .cursor {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1.1em;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+  animation: terminal-blink 1s steps(1) infinite;
+}
+
+.terminal-scope .glow {
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+.terminal-scope .panel {
+  background: rgba(10, 14, 20, 0.72);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}

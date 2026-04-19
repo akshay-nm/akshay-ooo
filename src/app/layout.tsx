@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Navigation } from '@/components/Navigation'
+import { SiteChrome } from '@/components/SiteChrome'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -26,10 +26,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Navigation />
-        <main className="pt-20">
-          {children}
-        </main>
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   )

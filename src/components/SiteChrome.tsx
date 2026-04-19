@@ -5,7 +5,7 @@ import { Navigation } from './Navigation'
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  if (pathname?.startsWith('/terminal')) {
+  if (pathname === '/') {
     return <>{children}</>
   }
   return (

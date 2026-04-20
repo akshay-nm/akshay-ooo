@@ -2,10 +2,89 @@
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { COMMANDS, COMMAND_LIST, isWindowResult } from "./commands";
+import {
+	Exorcism,
+	LiamNeeson,
+	MissionImpossible,
+	VirusReturning,
+	VirusTakeover,
+	VirusTaunt,
+} from "./EasterEggs";
 import { LoadingGate } from "./LoadingGate";
 import { Prompt } from "./Prompt";
 import { RedirectDialog } from "./RedirectDialog";
 import { Window } from "./Window";
+
+const MISSION_TRIGGERS = new Set(["akshay", "whoisthis", "agent"]);
+const DELETE_TRIGGERS = new Set([
+	"rm",
+	"delete",
+	"format",
+	"drop",
+	"shutdown",
+]);
+const HACK_TRIGGERS = new Set([
+	"hack",
+	"override",
+	"sudo",
+	"admin",
+	"exploit",
+	"pwn",
+]);
+
+type EasterEggKind = "mission" | "delete" | "virus";
+
+function detectTrigger(cmd: string, args: string[]): EasterEggKind | null {
+	if (MISSION_TRIGGERS.has(cmd)) return "mission";
+	if (DELETE_TRIGGERS.has(cmd)) return "delete";
+	if (HACK_TRIGGERS.has(cmd)) return "virus";
+	if (cmd === "sudo" && args[0] === "rm") return "delete";
+	return null;
+}
+
+const VIRUS_KEY = "akshay_virus_v1";
+const EXORCISMS_NEEDED = 3;
+
+const TAUNTS = [
+	"not so easy.",
+	"cute. try again.",
+	"you're making it worse.",
+	"i could do this all day.",
+	"you summoned this. live with it.",
+	"still trying? admirable.",
+];
+
+const HINT_SOFT = "hint: the way out is an exorcism.";
+const HINT_HARD =
+	"e·x·o·r·c·i·s·e. three times. with conviction.";
+
+type VirusState = {
+	tauntIndex: number;
+	exorcismProgress: number;
+};
+
+function loadVirus(): VirusState | null {
+	if (typeof window === "undefined") return null;
+	try {
+		const raw = window.localStorage.getItem(VIRUS_KEY);
+		return raw ? (JSON.parse(raw) as VirusState) : null;
+	} catch {
+		return null;
+	}
+}
+
+function saveVirus(state: VirusState | null) {
+	if (typeof window === "undefined") return;
+	try {
+		if (state) {
+			window.localStorage.setItem(VIRUS_KEY, JSON.stringify(state));
+		} else {
+			window.localStorage.removeItem(VIRUS_KEY);
+		}
+	} catch {
+		/* ignore */
+	}
+}
 
 type LogEntry = {
 	id: number;
@@ -56,7 +135,24 @@ export default function Page() {
 	const [pendingRedirect, setPendingRedirect] = useState<string | null>(null);
 	const [windows, setWindows] = useState<OpenWindow[]>([]);
 	const [topZ, setTopZ] = useState(10);
+	const [invalidStreak, setInvalidStreak] = useState(0);
+	const [virus, setVirus] = useState<VirusState | null>(null);
 	const scrollRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const existing = loadVirus();
+		if (existing) {
+			setVirus(existing);
+			setEntries((prev) => [
+				...prev,
+				{ id: -1, command: "", output: <VirusReturning /> },
+			]);
+		}
+	}, []);
+
+	useEffect(() => {
+		saveVirus(virus);
+	}, [virus]);
 
 	const focusWindow = useCallback(
 		(id: number) => {
@@ -116,33 +212,96 @@ export default function Page() {
 		setPendingRedirect(null);
 	}, []);
 
+	function renderEasterEgg(kind: EasterEggKind, raw: string): ReactNode {
+		if (kind === "mission") return <MissionImpossible />;
+		if (kind === "delete") return <LiamNeeson raw={raw} />;
+		return <VirusTakeover />;
+	}
+
+	function pushEntry(raw: string, output: ReactNode) {
+		setEntries((prev) => [...prev, { id: nextId, command: raw, output }]);
+		setNextId((n) => n + 1);
+	}
+
+	function handleVirusCommand(raw: string, cmd: string) {
+		if (!virus) return;
+		if (cmd === "exorcise") {
+			const next = virus.exorcismProgress + 1;
+			pushEntry(raw, <Exorcism count={next} />);
+			if (next >= EXORCISMS_NEEDED) {
+				setVirus(null);
+			} else {
+				setVirus({ ...virus, exorcismProgress: next });
+			}
+			return;
+		}
+		const idx = virus.tauntIndex;
+		let message: string;
+		let subtext: ReactNode = null;
+		if (idx < TAUNTS.length) {
+			message = TAUNTS[idx];
+		} else if (idx === TAUNTS.length) {
+			message = HINT_SOFT;
+		} else if (idx === TAUNTS.length + 1) {
+			message = HINT_HARD;
+		} else {
+			message = HINT_HARD;
+			subtext = (
+				<span>
+					say <span className="text-[var(--accent)]">exorcise</span>. three
+					times.
+				</span>
+			);
+		}
+		pushEntry(raw, <VirusTaunt message={message} subtext={subtext} />);
+		setVirus({ ...virus, tauntIndex: idx + 1 });
+	}
+
 	function handleCommand(raw: string) {
 		setHistory((h) => [...h, raw]);
 		const [head, ...args] = raw.trim().split(/\s+/);
 		const cmd = head.toLowerCase();
 
+		if (virus) {
+			handleVirusCommand(raw, cmd);
+			return;
+		}
+
 		if (cmd === "clear") {
 			setEntries([]);
+			setInvalidStreak(0);
+			return;
+		}
+
+		const trigger = detectTrigger(cmd, args);
+		if (trigger) {
+			setInvalidStreak(0);
+			if (trigger === "virus") {
+				setVirus({ tauntIndex: 0, exorcismProgress: 0 });
+			}
+			pushEntry(raw, renderEasterEgg(trigger, raw));
 			return;
 		}
 
 		const def = COMMANDS[cmd];
 		if (!def) {
-			setEntries((prev) => [
-				...prev,
-				{
-					id: nextId,
-					command: raw,
-					output: (
-						<span className="text-rose-400/90">
-							command not found: {raw}
-						</span>
-					),
-				},
-			]);
-			setNextId((n) => n + 1);
+			const nextStreak = invalidStreak + 1;
+			if (nextStreak >= 3) {
+				setInvalidStreak(0);
+				const kinds: EasterEggKind[] = ["virus", "mission", "delete"];
+				const pick = kinds[Math.floor(Math.random() * kinds.length)];
+				pushEntry(raw, renderEasterEgg(pick, raw));
+				return;
+			}
+			setInvalidStreak(nextStreak);
+			pushEntry(
+				raw,
+				<span className="text-rose-400/90">command not found: {raw}</span>
+			);
 			return;
 		}
+
+		setInvalidStreak(0);
 
 		const result = def.render(args);
 

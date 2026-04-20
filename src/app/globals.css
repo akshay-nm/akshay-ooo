@@ -61,7 +61,7 @@
 }
 
 body {
-  background: white;
+  background: black;
   color: var(--color-slate-900);
   font-family: var(--font-sans);
 }

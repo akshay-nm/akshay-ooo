@@ -1,10 +1,14 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { SiteChrome } from '@/components/SiteChrome'
 import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Akshay Kumar - Full-Stack Engineer',
   description: 'Full-stack engineer specializing in accounting systems and financial infrastructure.',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#000000',
 }
 
 export default function RootLayout({

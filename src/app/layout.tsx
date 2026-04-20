@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-white antialiased">
+    <html lang="en" className="bg-black antialiased">
       <head>
         <link
           rel="preconnect"

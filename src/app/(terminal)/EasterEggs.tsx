@@ -4,7 +4,15 @@ import { useEffect, useState, type ReactNode } from 'react'
 
 type Stage = { content: ReactNode; delay: number }
 
-function Stages({ stages }: { stages: Stage[] }) {
+function Stages({
+  stages,
+  onComplete,
+  completeDelay = 1500,
+}: {
+  stages: Stage[]
+  onComplete?: () => void
+  completeDelay?: number
+}) {
   const [shown, setShown] = useState(0)
 
   useEffect(() => {
@@ -16,6 +24,13 @@ function Stages({ stages }: { stages: Stage[] }) {
     return () => window.clearTimeout(t)
   }, [shown, stages])
 
+  useEffect(() => {
+    if (shown >= stages.length && onComplete) {
+      const t = window.setTimeout(() => onComplete(), completeDelay)
+      return () => window.clearTimeout(t)
+    }
+  }, [shown, stages.length, onComplete, completeDelay])
+
   return (
     <div className="space-y-1">
       {stages.slice(0, shown + 1).map((s, i) => (
@@ -25,96 +40,133 @@ function Stages({ stages }: { stages: Stage[] }) {
   )
 }
 
+const MISSION_TEXTS = [
+  'scanning biometrics...',
+  'match found: akshay kumar (confidence 99.7%)',
+  'good evening, mr. kumar.',
+  'your mission, should you choose to accept it:',
+  '- ship one fintech contract in under 30 days\n- recruit a founding design partner\n- keep the test suite green',
+  'as always, should you or any member of your team be caught or killed...',
+  '...wait.',
+  'biometric signature mismatch.',
+  'you are not akshay kumar.',
+  'self-destruct sequence initiated.',
+  '3...',
+  '2...',
+  '1...',
+  '[ this conversation never happened ]',
+]
+
+const MISSION_STAGES: Stage[] = [
+  {
+    delay: 300,
+    content: (
+      <span className="text-[var(--muted)]">{MISSION_TEXTS[0]}</span>
+    ),
+  },
+  {
+    delay: 600,
+    content: (
+      <span className="text-[var(--accent)]">{MISSION_TEXTS[1]}</span>
+    ),
+  },
+  {
+    delay: 700,
+    content: (
+      <p className="text-[var(--accent)] glow">{MISSION_TEXTS[2]}</p>
+    ),
+  },
+  { delay: 900, content: <p>{MISSION_TEXTS[3]}</p> },
+  {
+    delay: 700,
+    content: (
+      <ul className="ml-4 list-disc text-[var(--muted)]">
+        <li>ship one fintech contract in under 30 days</li>
+        <li>recruit a founding design partner</li>
+        <li>keep the test suite green</li>
+      </ul>
+    ),
+  },
+  { delay: 1100, content: <p>{MISSION_TEXTS[5]}</p> },
+  {
+    delay: 1400,
+    content: <p className="text-[var(--muted)]">{MISSION_TEXTS[6]}</p>,
+  },
+  {
+    delay: 600,
+    content: <p className="text-rose-400/90">{MISSION_TEXTS[7]}</p>,
+  },
+  {
+    delay: 500,
+    content: <p className="text-rose-400/90">{MISSION_TEXTS[8]}</p>,
+  },
+  {
+    delay: 900,
+    content: <p className="text-rose-400/90">{MISSION_TEXTS[9]}</p>,
+  },
+  {
+    delay: 700,
+    content: <p className="text-rose-400/90 glow">{MISSION_TEXTS[10]}</p>,
+  },
+  {
+    delay: 700,
+    content: <p className="text-rose-400/90 glow">{MISSION_TEXTS[11]}</p>,
+  },
+  {
+    delay: 700,
+    content: <p className="text-rose-400/90 glow">{MISSION_TEXTS[12]}</p>,
+  },
+  {
+    delay: 400,
+    content: (
+      <p className="text-[var(--accent)] glow">{MISSION_TEXTS[13]}</p>
+    ),
+  },
+]
+
+function redactionBar(text: string) {
+  // one line of bars per newline; width = original text length (clamped)
+  return text
+    .split('\n')
+    .map((line) => '█'.repeat(Math.min(Math.max(line.length, 8), 60)))
+    .join('\n')
+}
+
 export function MissionImpossible() {
+  const [redacted, setRedacted] = useState(false)
+
+  if (redacted) {
+    return (
+      <div className="space-y-1 select-none">
+        {MISSION_TEXTS.map((t, i) => (
+          <pre
+            key={i}
+            className="whitespace-pre-wrap font-mono text-[var(--fg)]"
+          >
+            {redactionBar(t)}
+          </pre>
+        ))}
+        <p className="pt-1 text-rose-400/90 glow">
+          [ TRANSMISSION REDACTED ]
+        </p>
+      </div>
+    )
+  }
+
   return (
     <Stages
-      stages={[
-        {
-          delay: 300,
-          content: (
-            <span className="text-[var(--muted)]">
-              scanning biometrics...
-            </span>
-          ),
-        },
-        {
-          delay: 600,
-          content: (
-            <span className="text-[var(--accent)]">
-              match found: akshay kumar (confidence 99.7%)
-            </span>
-          ),
-        },
-        {
-          delay: 700,
-          content: (
-            <p className="text-[var(--accent)] glow">
-              good evening, mr. kumar.
-            </p>
-          ),
-        },
-        {
-          delay: 900,
-          content: (
-            <p>
-              your mission, should you choose to accept it:
-            </p>
-          ),
-        },
-        {
-          delay: 700,
-          content: (
-            <ul className="ml-4 list-disc text-[var(--muted)]">
-              <li>ship one fintech contract in under 30 days</li>
-              <li>recruit a founding design partner</li>
-              <li>keep the test suite green</li>
-            </ul>
-          ),
-        },
-        {
-          delay: 1100,
-          content: (
-            <p>
-              as always, should you or any member of your team be caught or
-              killed...
-            </p>
-          ),
-        },
-        {
-          delay: 1400,
-          content: <p className="text-[var(--muted)]">...wait.</p>,
-        },
-        {
-          delay: 600,
-          content: (
-            <p className="text-rose-400/90">
-              biometric signature mismatch.
-            </p>
-          ),
-        },
-        {
-          delay: 500,
-          content: (
-            <p className="text-rose-400/90">you are not akshay kumar.</p>
-          ),
-        },
-        {
-          delay: 900,
-          content: (
-            <p className="text-[var(--muted)]">
-              this message will self-destruct in 3... 2... 1...
-            </p>
-          ),
-        },
-        {
-          delay: 1200,
-          content: (
-            <p className="text-[var(--accent)] glow">
-              [ this conversation never happened ]
-            </p>
-          ),
-        },
-      ]}
+      stages={MISSION_STAGES}
+      completeDelay={500}
+      onComplete={() => {
+        const root = document.querySelector(
+          '.terminal-scope'
+        ) as HTMLElement | null
+        root?.classList.add('shake-destroy')
+        window.setTimeout(() => {
+          root?.classList.remove('shake-destroy')
+          setRedacted(true)
+        }, 1600)
+      }}
     />
   )
 }
